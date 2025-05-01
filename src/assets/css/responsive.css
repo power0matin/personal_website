@@ -1,0 +1,91 @@
+@media (max-width: 995px) {
+    header {
+        padding: 1.5rem 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 50%;
+        height: 100vh;
+        background: #2a2a2a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: 0.3s ease;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav a {
+        font-size: 2rem;
+        margin: 2rem 0;
+        border-bottom: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+        color: #39c5a7;
+        border-bottom: none;
+        background: #39c5a7;
+        color: #1a1a1a;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .home {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 10rem 5% 5rem;
+    }
+
+    .home-img img {
+        width: 50vw;
+    }
+
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.8rem;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-img img {
+        width: 70vw;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 55%;
+    }
+
+    .home-img img {
+        width: 70vw;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
