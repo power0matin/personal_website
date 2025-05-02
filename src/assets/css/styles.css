@@ -137,6 +137,7 @@ span {
     box-shadow: 0 0 15px #39c5a7;
 }
 
+
 .btn {
     display: inline-block;
     padding: 1.2rem 3rem;
@@ -311,11 +312,4 @@ footer {
     padding: 2rem;
     background: #2a2a2a;
     font-size: 1.4rem;
-}
-
-footer footer-social-links a {
-    margin: 0 1rem;
-    font-size: 2rem;
-    color: #39c5a7;
-    transition: 0.3s ease;
 }
