@@ -115,7 +115,7 @@ span {
     color: #39c5a7;
 }
 
-social-icons a {
+.social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -309,19 +309,17 @@ social-icons a {
 
 footer {
     text-align: center;
-    padding: 4rem;
+    padding: 6rem;
     background: #2a2a2a;
-    font-size: 1.6rem;
-    max-width: 100%;
-    margin: 0 auto;
+    font-size: 2rem;
 }
 
 footer .footer-social-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
     color: #39c5a7;
 }
 
@@ -333,7 +331,7 @@ footer .footer-social-links a {
     height: 1.5rem;
     background: transparent;
     border: 0.4rem solid #39c5a7;
-    font-size: 2rem;
+    font-size: 4rem;
     border-radius: 50%;
     color: #39c5a7;
     transition: 0.3s ease;
