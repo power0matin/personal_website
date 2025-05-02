@@ -309,7 +309,35 @@ span {
 
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 6rem;
     background: #2a2a2a;
-    font-size: 1.4rem;
+    font-size: 2rem;
+}
+
+footer .footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+footer .footer-social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    background: transparent;
+    border: 0.4rem solid #39c5a7;
+    font-size: 4rem;
+    border-radius: 50%;
+    color: #39c5a7;
+    transition: 0.3s ease;
+}
+
+footer .footer-social-links a:hover {
+    color: #1a1a1a;
+    background: #39c5a7;
+    transform: scale(1.3);
+    box-shadow: 0 0 25px #39c5a7;
 }
