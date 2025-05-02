@@ -115,7 +115,7 @@ span {
     color: #39c5a7;
 }
 
-.social-icons a {
+social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -309,17 +309,19 @@ span {
 
 footer {
     text-align: center;
-    padding: 6rem;
+    padding: 4rem;
     background: #2a2a2a;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 footer .footer-social-links {
     display: flex;
     justify-content: center;
-    gap: 4rem;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
     color: #39c5a7;
 }
 
