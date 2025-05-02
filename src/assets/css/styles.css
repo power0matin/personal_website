@@ -308,17 +308,35 @@ social-icons a {
 
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 4rem;
     background: #2a2a2a;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+}
+
+footer .footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 footer .footer-social-links a {
-    display: inline-block;
-    margin: 0 1rem;
-    font-size: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+    background: transparent;
+    border: 0.3rem solid #39c5a7;
+    font-size: 3rem;
+    border-radius: 50%;
     color: #39c5a7;
     transition: 0.3s ease;
-    text-align: center;
-    line-height: 1.5;
+}
+
+footer .footer-social-links a:hover {
+    color: #1a1a1a;
+    background: #39c5a7;
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #39c5a7;
 }
