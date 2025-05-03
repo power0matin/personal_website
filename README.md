@@ -5,6 +5,7 @@
 A modern, responsive, and visually appealing personal portfolio website for Matin Shahabadi, showcasing skills, projects, and contact information. This project is built with a focus on clean design, smooth animations, and a seamless user experience.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
@@ -15,6 +16,7 @@ A modern, responsive, and visually appealing personal portfolio website for Mati
 - [Contact](#contact)
 
 ## Features
+
 - **Responsive Design**: Optimized for desktops, tablets, and mobile devices.
 - **Dynamic Typing Animation**: Engaging text animation on the homepage to highlight roles.
 - **Portfolio Showcase**: A grid-based portfolio section to display projects with images and descriptions.
@@ -24,6 +26,7 @@ A modern, responsive, and visually appealing personal portfolio website for Mati
 - **SEO-Friendly**: Meta tags and semantic HTML for better search engine visibility.
 
 ## Project Structure
+
 ```
 personal_website/
 │
@@ -65,6 +68,7 @@ personal_website/
 ```
 
 ## Technologies Used
+
 - **Frontend**:
   - HTML5, CSS3, JavaScript
   - Font Awesome (for icons)
@@ -80,11 +84,13 @@ personal_website/
 ## Setup Instructions
 
 ### Prerequisites
+
 - **Node.js** (optional, for frontend tooling)
 - **Python 3.8+** (for backend)
 - **Git** (for cloning the repository)
 
 ### Frontend Setup
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/power0matin/personal_website.git
@@ -98,6 +104,7 @@ personal_website/
 3. Access the website at `http://localhost:8080`.
 
 ### Backend Setup
+
 1. Navigate to the `backend` directory:
    ```bash
    cd backend
@@ -119,6 +126,7 @@ personal_website/
 5. The backend API will be available at `http://localhost:5000`.
 
 ### Testing
+
 - Run unit tests for the contact form:
   ```bash
   cd tests
@@ -126,6 +134,7 @@ personal_website/
   ```
 
 ## Deployment
+
 - **Frontend**:
   - Deploy static files (`src` directory) to platforms like **Netlify**, **Vercel**, or **GitHub Pages**.
   - Example for Netlify:
@@ -141,7 +150,9 @@ personal_website/
     ```
 
 ## Contributing
+
 Contributions are welcome! To contribute:
+
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/your-feature`).
 3. Commit your changes (`git commit -m "Add your feature"`).
@@ -151,9 +162,11 @@ Contributions are welcome! To contribute:
 Please ensure your code follows the project's coding standards and includes relevant tests.
 
 ## License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
+
 - **Matin Shahabadi**
 - Email: matin_shahabadi@outlook.com
 - GitHub: [power0matin](https://github.com/power0matin)

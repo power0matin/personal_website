@@ -1,14 +1,14 @@
 {
-    "name": "personal-portfolio",
-    "version": "1.0.0",
-    "description": "Personal portfolio website for Matin Shahabadi",
-    "scripts": {
-      "start": "http-server ./src -p 8080",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Matin Shahabadi",
-    "license": "MIT",
-    "dependencies": {
-      "http-server": "^14.1.1"
-    }
-  }
+ "name": "personal-portfolio",
+ "version": "1.0.0",
+ "description": "Personal portfolio website for Matin Shahabadi",
+ "scripts": {
+  "start": "http-server ./src -p 8080",
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "author": "Matin Shahabadi",
+ "license": "MIT",
+ "dependencies": {
+  "http-server": "^14.1.1"
+ }
+}
