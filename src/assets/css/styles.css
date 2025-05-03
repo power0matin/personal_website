@@ -327,3 +327,10 @@ footer {
     color: #39c5a7;
     transition: 0.3s ease;
 }
+
+.footer-social-links a:hover {
+    color: #1a1a1a;
+    background: #39c5a7;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px #39c5a7;
+}
