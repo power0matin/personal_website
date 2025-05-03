@@ -334,3 +334,50 @@ footer {
     transform: scale(1.2);
     box-shadow: 0 0 15px #39c5a7;
 }
+
+/* Dark Mode Toggle Styles */
+.dark-mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 6rem;
+    height: 3rem;
+    background: #2a2a2a;
+    border: 0.2rem solid cyan;
+    border-radius: 3rem;
+    box-shadow: 0 0 15px cyan;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode-toggle .toggle-thumb {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle .icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle.light-mode {
+    background: white;
+    box-shadow: 0 0 15px yellow;
+}
+
+.dark-mode-toggle.light-mode .icon {
+    color: black;
+}
+
+.dark-mode-toggle.light-mode .toggle-thumb {
+    transform: translateX(3rem);
+    box-shadow: 0 0 10px yellow;
+}
