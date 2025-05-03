@@ -41,10 +41,26 @@
         border-radius: 0.5rem;
     }
 
+    body.light-mode nav {
+        background: var(--light-bg);
+        color: var(--light-text);
+    }
+
+    body.light-mode nav a:hover,
+    body.light-mode nav a.active {
+        background: var(--cyan);
+        color: var(--light-bg);
+    }
+
     .home {
         flex-direction: column;
         gap: 4rem;
         padding: 10rem 5% 5rem;
+    }
+
+    body.light-mode .home {
+        background-color: var(--light-bg);
+        color: var(--light-text);
     }
 
     .home-img img {
@@ -67,6 +83,12 @@
         flex-direction: column;
     }
 
+    body.light-mode .about-content,
+    body.light-mode .contact-content {
+        background-color: var(--light-bg);
+        color: var(--light-text);
+    }
+
     .about-img img {
         width: 70vw;
     }
@@ -87,5 +109,10 @@
 
     .portfolio-grid {
         grid-template-columns: 1fr;
+    }
+
+    body.light-mode .portfolio-grid {
+        background-color: var(--light-bg);
+        color: var(--light-text);
     }
 }
