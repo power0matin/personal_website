@@ -34,9 +34,9 @@
 //       }
 //     }
 //   });
-const toggleButton = document.querySelector(".toggle-button"); // گرفتن دکمه
-const body = document.body; // گرفتن تگ body
+// const toggleButton = document.querySelector(".toggle-button"); // گرفتن دکمه
+// const body = document.body; // گرفتن تگ body
 
-toggleButton.addEventListener("click", function() {
-    body.classList.toggle("dark-mode"); // تغییر حالت دارک مود
-});
+// toggleButton.addEventListener("click", function() {
+//     body.classList.toggle("dark-mode"); // تغییر حالت دارک مود
+// });

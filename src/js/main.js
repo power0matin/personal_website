@@ -48,3 +48,37 @@ function type() {
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, 1000);
 });
+
+// Add to main.js
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.querySelector(".theme-toggle");
+    const body = document.body;
+
+    // Check system preference and localStorage
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme) {
+        body.classList.toggle("light-theme", savedTheme === "light");
+    } else if (prefersDark) {
+        body.classList.remove("light-theme");
+    } else {
+        body.classList.add("light-theme");
+    }
+
+    // Update icon based on current theme
+    const updateIcon = () => {
+        const isLight = body.classList.contains("light-theme");
+        themeToggle.querySelector("i").classList.toggle("fa-moon", !isLight);
+        themeToggle.querySelector("i").classList.toggle("fa-sun", isLight);
+    };
+    updateIcon();
+
+    // Toggle theme on button click
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-theme");
+        const isLight = body.classList.contains("light-theme");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+        updateIcon();
+    });
+});

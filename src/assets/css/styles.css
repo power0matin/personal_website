@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
+:root {
+    /* Dark Theme Variables */
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --accent-color: #39c5a7;
+    --secondary-bg: #2a2a2a;
+    --shadow-color: rgba(57, 197, 167, 0.5);
+}
 
 * {
     margin: 0;
@@ -336,12 +343,32 @@ footer {
     box-shadow: 0 0 15px #39c5a7;
 }
 
-body.dark-mode {
-    background-color: #121212; /* رنگ پس زمینه برای دارک مود */
-    color: #fff; /* رنگ متن برای دارک مود */
+.light-theme {
+    /* Light Theme Variables */
+    --bg-color: #f4f4f4;
+    --text-color: #333333;
+    --accent-color: #39c5a7;
+    --secondary-bg: #ffffff;
+    --shadow-color: rgba(57, 197, 167, 0.3);
 }
 
-/* استایل‌های اضافی برای دارک مود */
-.dark-mode .navbar {
-    background-color: #333; /* رنگ پس زمینه برای نوار ناوبری */
+.light-theme header {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+.theme-toggle i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle i:hover {
+    transform: scale(1.1);
 }
