@@ -13,29 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    const body = document.body;
-
-    // Check for saved theme in localStorage
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        if (savedTheme === "light-mode") {
-            darkModeToggle.classList.add("light-mode");
-        }
-    }
-
-    darkModeToggle.addEventListener("click", () => {
-        const isLightMode = body.classList.toggle("light-mode");
-        darkModeToggle.classList.toggle("light-mode", isLightMode);
-
-        // Save theme preference to localStorage
-        localStorage.setItem("theme", isLightMode ? "light-mode" : "dark-mode");
-    });
-});
-
 const words = ["Software Developer", "Web Designer", "Backend Engineer", "Script Writer", "Freelancer"];
 const typedTextSpan = document.getElementById("typed-text");
 

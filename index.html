@@ -27,13 +27,19 @@
         <a href="/personal_website/src/pages/portfolio.html">Portfolio</a>
         <a href="/personal_website/src/pages/contact.html">Contact</a>
       </nav>
+      <div id="darkModeToggleContainer">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </div>
+      <div class="dark-mode-toggle" aria-label="Toggle light mode">
+        <i class="fas fa-sun"></i>
+      </div>
     </header>
-
-    <div class="dark-mode-toggle" id="darkModeToggle">
-        <span class="icon">☀️</span>
-        <div class="toggle-thumb"></div>
-        <span class="icon">🌙</span>
-    </div>
 
     <main>
       <section class="home">
@@ -74,5 +80,6 @@
     </footer>
 
     <script src="/personal_website/src/js/main.js"></script>
+    <script src="js/darkMode.js"></script>
   </body>
 </html>
