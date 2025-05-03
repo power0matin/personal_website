@@ -314,16 +314,16 @@ footer {
     font-size: 1.4rem;
 }
 .footer-social-links a {
+    width: 3rem; /* Increased size for better visibility */
+    height: 3rem;
+    font-size: 2rem; /* Increased icon size */
+    margin: 0 1rem; /* Adjusted spacing between icons */
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 1.5rem;         /* افزایش ملایم نسبت به 1rem برای حفظ قابل کلیک بودن */
-    height: 1.5rem;
     background: transparent;
     border: 0.15rem solid #39c5a7;
-    font-size: 1.2rem;     /* کاهش اندازه آیکون */
     border-radius: 50%;
-    margin: 0 0.5rem;      /* کاهش فاصله بین آیکون‌ها */
     color: #39c5a7;
     transition: 0.3s ease;
 }
