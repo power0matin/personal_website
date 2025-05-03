@@ -116,7 +116,7 @@ span {
     color: #39c5a7;
 }
 
-social-icons a {
+.social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
