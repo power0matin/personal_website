@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
@@ -335,10 +336,58 @@ footer {
     box-shadow: 0 0 15px #39c5a7;
 }
 
-#darkModeToggleContainer {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    /* قرار دادن دکمه بالاتر از بقیه محتوای صفحه */
-}
+:root {
+    --cyan: #39c5a7;
+    --light-bg: #ffffff;
+    --dark-bg: #121212;
+    --light-text: #000000;
+    --dark-text: #ffffff;
+  }
+  
+  body.light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+  }
+  
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  .theme-toggle {
+    width: 60px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid var(--cyan);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem;
+  }
+  
+  .theme-toggle .icon {
+    font-size: 16px;
+    z-index: 2;
+    color: var(--cyan);
+  }
+  
+  .toggle-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: var(--cyan);
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  body.dark-mode .toggle-thumb {
+    left: 33px;
+  }
+  
