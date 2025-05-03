@@ -292,42 +292,71 @@ span {
 }
 
 .portfolio-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
- gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
 }
 
 .portfolio-item {
- background: var(--secondary-bg);
- padding: 2rem;
- border-radius: 1rem;
- text-align: center;
- transition: 0.3s ease;
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: 0.3s ease;
+    position: relative; /* For positioning the button */
+    min-height: 40rem; /* Minimum height to ensure content fits */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
 }
 
 .portfolio-item:hover {
- transform: translateY(-5px);
- box-shadow: 0 0 15px var(--shadow-color);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--shadow-color);
 }
 
 .portfolio-item img {
- width: 100%;
- height: 20rem;
- object-fit: cover;
- border-radius: 0.5rem;
- margin-bottom: 1.5rem;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .portfolio-item h3 {
- font-size: 2.2rem;
- margin-bottom: 1rem;
- color: var(--text-color);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 .portfolio-item p {
- font-size: 1.4rem;
- margin-bottom: 2rem;
- color: var(--text-color);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    flex-grow: 1; /* Allows text to push button down */
+}
+
+.portfolio-item .btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--bg-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    transition: 0.3s ease;
+    width: 100%; /* Ensures button spans the card width */
+    max-width: 20rem; /* Limits button width */
+    margin: 0 auto; /* Centers the button horizontally */
+}
+
+.portfolio-item .btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--shadow-color);
 }
 
 .contact-content {
