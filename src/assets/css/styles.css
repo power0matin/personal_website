@@ -207,26 +207,28 @@ span {
  font-size: 3.4rem;
  font-weight: 600;
  min-width: 280px;
+ display: inline-block;
 }
 
-/* Fixing the animation issue with the typing-text span */
-.typing-text span {
- position: relative;
- display: inline-block; /* Ensure proper alignment */
-}
-
-.typing-text span::before {
- content: 'Web Developer'; /* Default text */
+.typing-text span#typed-text {
  color: var(--accent-color);
- animation: words 20s infinite; /* Cycle through words */
 }
 
-.typing-text span::after {
- content: '|'; /* Single cursor */
- position: absolute;
- right: -8px; /* Adjust position */
+.typing-text span.cursor {
+ display: inline-block;
  color: var(--accent-color);
- animation: cursor-blink 0.6s steps(1) infinite; /* Blinking effect */
+ animation: cursor-blink 0.6s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+ 0%,
+ 50% {
+  opacity: 1;
+ }
+ 51%,
+ 100% {
+  opacity: 0;
+ }
 }
 
 @keyframes cursor-blink {

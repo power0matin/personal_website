@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+ // Mobile menu toggle
  const menuToggle = document.querySelector('.menu-toggle');
  const nav = document.querySelector('nav');
 
@@ -12,51 +13,51 @@ document.addEventListener('DOMContentLoaded', () => {
    nav.classList.remove('active');
   });
  });
-});
-const words = [
- 'Software Developer',
- 'Web Designer',
- 'Backend Engineer',
- 'Script Writer',
- 'Freelancer',
-];
-const typedTextSpan = document.getElementById('typed-text');
 
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let delay = 100;
+ // Typing animation
+ const words = [
+  'Software Developer',
+  'Web Designer',
+  'Backend Engineer',
+  'Script Writer',
+  'Freelancer',
+ ];
+ const typedTextSpan = document.getElementById('typed-text');
 
-function type() {
- const currentWord = words[wordIndex];
- const currentText = currentWord.substring(0, charIndex);
+ if (typedTextSpan) {
+  // Check if element exists (only on index.html)
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let delay = 100;
 
- typedTextSpan.textContent = currentText;
+  function type() {
+   const currentWord = words[wordIndex];
+   const currentText = currentWord.substring(0, charIndex);
+   typedTextSpan.textContent = currentText;
 
- if (!isDeleting && charIndex < currentWord.length) {
-  charIndex++;
-  delay = 100;
- } else if (isDeleting && charIndex > 0) {
-  charIndex--;
-  delay = 50;
- } else if (!isDeleting && charIndex === currentWord.length) {
-  delay = 2000;
-  isDeleting = true;
- } else if (isDeleting && charIndex === 0) {
-  isDeleting = false;
-  wordIndex = (wordIndex + 1) % words.length;
-  delay = 500;
+   if (!isDeleting && charIndex < currentWord.length) {
+    charIndex++;
+    delay = 100;
+   } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    delay = 50;
+   } else if (!isDeleting && charIndex === currentWord.length) {
+    delay = 2000;
+    isDeleting = true;
+   } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    delay = 500;
+   }
+
+   setTimeout(type, delay);
+  }
+
+  setTimeout(type, 1000);
  }
 
- setTimeout(type, delay);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
- setTimeout(type, 1000);
-});
-
-// Add to main.js
-document.addEventListener('DOMContentLoaded', () => {
+ // Theme toggle
  const themeToggle = document.querySelector('.theme-toggle');
  const body = document.body;
 
