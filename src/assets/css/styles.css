@@ -298,17 +298,24 @@ span {
     padding: 2rem 0;
 }
 
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
 .portfolio-item {
     background: var(--secondary-bg);
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
     transition: 0.3s ease;
-    position: relative; /* For positioning the button */
-    min-height: 40rem; /* Minimum height to ensure content fits */
+    position: relative;
+    min-height: 45rem; /* Minimum height to ensure button stays at bottom */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes button to bottom */
+    justify-content: flex-start; /* Align content to top, button to bottom */
 }
 
 .portfolio-item:hover {
@@ -334,7 +341,7 @@ span {
     font-size: 1.4rem;
     margin-bottom: 2rem;
     color: var(--text-color);
-    flex-grow: 1; /* Allows text to push button down */
+    flex-grow: 1; /* Allows text to expand and push button to bottom */
 }
 
 .portfolio-item .btn {
@@ -347,9 +354,9 @@ span {
     color: var(--accent-color);
     font-weight: 600;
     transition: 0.3s ease;
-    width: 100%; /* Ensures button spans the card width */
+    width: 100%;
     max-width: 20rem; /* Limits button width */
-    margin: 0 auto; /* Centers the button horizontally */
+    margin: 0 auto 1rem auto; /* Centers button and adds bottom margin */
 }
 
 .portfolio-item .btn:hover {
