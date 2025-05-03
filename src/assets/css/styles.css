@@ -220,17 +220,7 @@ span {
  animation: cursor-blink 0.6s steps(1) infinite;
 }
 
-@keyframes cursor-blink {
- 0%,
- 50% {
-  opacity: 1;
- }
- 51%,
- 100% {
-  opacity: 0;
- }
-}
-
+/* Removed duplicate @keyframes for cursor-blink */
 @keyframes cursor-blink {
  0%,
  50% {
@@ -242,27 +232,10 @@ span {
  }
 }
 
-@keyframes words {
- 0%,
- 20% {
-  content: 'Web Developer';
- }
- 21%,
- 40% {
-  content: 'Software Developer';
- }
- 41%,
- 60% {
-  content: 'Web Designer';
- }
- 61%,
- 80% {
-  content: 'Content Creator';
- }
- 81%,
- 100% {
-  content: 'Script Writer';
- }
+/* Added :focus styles for accessibility */
+nav a:focus, .btn:focus, .social-icons a:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 4px;
 }
 
 .about h2,
