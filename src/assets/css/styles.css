@@ -4,7 +4,7 @@
 :root {
  /* Dark Theme Variables */
  --bg-color: #1a1a1a; /* Dark background */
- --text-color: #d1d5db; /* Softer light gray text (instead of #e0e0e0) */
+ --text-color: #d1d5db; /* Softer light gray text */
  --accent-color: #39c5a7; /* Cyan */
  --secondary-bg: #2a2a2a; /* Slightly lighter dark for cards */
  --shadow-color: rgba(57, 197, 167, 0.5); /* Cyan shadow */
@@ -12,10 +12,10 @@
 
 .light-theme {
  /* Light Theme Variables */
- --bg-color: #f0f4f8; /* Softer light gray background (instead of #e8ecef) */
- --text-color: #4b5563; /* Softer dark gray text (instead of #343a40) */
+ --bg-color: #f0f4f8; /* Softer light gray background */
+ --text-color: #4b5563; /* Softer dark gray text */
  --accent-color: #39c5a7; /* Cyan, unchanged */
- --secondary-bg: #f9fafb; /* Very light gray for cards (instead of #f1f3f5) */
+ --secondary-bg: #f9fafb; /* Very light gray for cards */
  --shadow-color: rgba(57, 197, 167, 0.3); /* Softer cyan shadow */
 }
 
@@ -40,7 +40,7 @@
  outline: none;
  font-family: 'Poppins', sans-serif;
  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
-  box-shadow 0.3s ease;
+  box-shadow 0.3s ease, transform 0.3s ease; /* Added transform transition for nav links */
 }
 
 html {
@@ -70,7 +70,7 @@ header {
 }
 
 .light-theme header {
- background: rgba(243, 244, 246, 0.9); /* Softer semi-transparent light (instead of #f1f3f5) */
+ background: rgba(243, 244, 246, 0.9); /* Softer semi-transparent light */
 }
 
 .logo {
@@ -97,6 +97,7 @@ nav a:hover,
 nav a.active {
  color: var(--accent-color);
  border-bottom: 3px solid var(--accent-color);
+ transform: scale(1.1); /* Added scaling effect on hover */
 }
 
 .menu-toggle {
@@ -104,11 +105,11 @@ nav a.active {
  font-size: 2.5rem;
  color: var(--accent-color);
  cursor: pointer;
- transition: 0.3s ease; /* Added for scaling animation */
+ transition: 0.3s ease;
 }
 
 .menu-toggle:hover {
- transform: scale(1.1); /* Same as logo */
+ transform: scale(1.1);
 }
 
 .theme-toggle {
