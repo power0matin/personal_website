@@ -13,7 +13,7 @@
   right: -100%;
   width: 50%;
   height: 100vh;
-  background: #2a2a2a;
+  background: var(--secondary-bg); /* Use variable for consistency */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,27 +29,26 @@
   font-size: 2rem;
   margin: 2rem 0;
   border-bottom: none;
+  color: var(--text-color); /* Ensure color consistency */
  }
 
  nav a:hover,
  nav a.active {
-  color: #39c5a7;
-  border-bottom: none;
-  background: #39c5a7;
-  color: #1a1a1a;
+  color: var(--bg-color); /* Background color for contrast */
+  background: var(--accent-color);
   padding: 1rem;
   border-radius: 0.5rem;
+  transform: scale(1.1); /* Added scaling effect on hover */
  }
 
- body.light-mode nav {
-  background: var(--light-bg);
-  color: var(--light-text);
+ .light-theme nav {
+  background: var(--secondary-bg); /* Use variable for light theme */
  }
 
- body.light-mode nav a:hover,
- body.light-mode nav a.active {
-  background: var(--cyan);
-  color: var(--light-bg);
+ .light-theme nav a:hover,
+ .light-theme nav a.active {
+  background: var(--accent-color);
+  color: var(--bg-color); /* Use background color for contrast */
  }
 
  .home {
@@ -58,9 +57,9 @@
   padding: 10rem 5% 5rem;
  }
 
- body.light-mode .home {
-  background-color: var(--light-bg);
-  color: var(--light-text);
+ .light-theme .home {
+  background-color: var(--bg-color);
+  color: var(--text-color);
  }
 
  .home-img img {
@@ -83,10 +82,10 @@
   flex-direction: column;
  }
 
- body.light-mode .about-content,
- body.light-mode .contact-content {
-  background-color: var(--light-bg);
-  color: var(--light-text);
+ .light-theme .about-content,
+ .light-theme .contact-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
  }
 
  .about-img img {
@@ -111,8 +110,8 @@
   grid-template-columns: 1fr;
  }
 
- body.light-mode .portfolio-grid {
-  background-color: var(--light-bg);
-  color: var(--light-text);
+ .light-theme .portfolio-grid {
+  background-color: var(--bg-color);
+  color: var(--text-color);
  }
 }
