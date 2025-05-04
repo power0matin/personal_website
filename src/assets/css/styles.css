@@ -12,11 +12,17 @@
 
 .light-theme {
  /* Light Theme Variables */
- --bg-color: #f0f4f8; /* Softer light gray background */
- --text-color: #4b5563; /* Softer dark gray text */
+ --bg-color: #f8fafc; /* Warmer soft white background */
+ --text-color: #1f2937; /* Darker gray-blue for main text */
  --accent-color: #39c5a7; /* Cyan, unchanged */
- --secondary-bg: #f9fafb; /* Very light gray for cards */
- --shadow-color: rgba(57, 197, 167, 0.3); /* Softer cyan shadow */
+ --secondary-bg: #ffffff; /* Pure white for cards with shadow */
+ --shadow-color: rgba(57, 197, 167, 0.2); /* Softer cyan shadow */
+ --secondary-text: #6b7280; /* Medium gray for secondary text */
+ --border-color: #e5e7eb; /* Light gray for borders */
+ --header-footer-bg: #edf2f7; /* Soft gray for header/footer */
+ --button-text: #ffffff; /* White for button text */
+ --button-bg: #39c5a7; /* Cyan for button background */
+ --button-hover: #2da891; /* Darker cyan for button hover */
 }
 
 /* Light Theme Specific Styles */
@@ -70,7 +76,7 @@ header {
 }
 
 .light-theme header {
- background: rgba(243, 244, 246, 0.9); /* Softer semi-transparent light */
+ background: var(--header-footer-bg); /* Soft gray for header */
 }
 
 .logo {
@@ -172,7 +178,7 @@ section {
  font-size: 1.6rem;
  line-height: 1.8;
  margin-bottom: 2rem;
- color: var(--text-color);
+ color: var(--secondary-text); /* Secondary text color */
 }
 
 span {
@@ -204,18 +210,18 @@ span {
 .btn {
  display: inline-block;
  padding: 1.2rem 3rem;
- background: var(--bg-color);
+ background: var(--button-bg); /* Cyan background */
  border: 2px solid var(--accent-color);
  border-radius: 4rem;
  font-size: 1.6rem;
- color: var(--accent-color);
+ color: var(--button-text); /* White text */
  font-weight: 600;
  transition: 0.3s ease;
 }
 
 .btn:hover {
- background: var(--accent-color);
- color: var(--bg-color);
+ background: var(--button-hover); /* Darker cyan on hover */
+ color: var(--button-text);
  transform: scale(1.05);
  box-shadow: 0 0 15px var(--shadow-color);
 }
@@ -279,7 +285,7 @@ span {
  font-size: 1.6rem;
  line-height: 1.8;
  margin-bottom: 2rem;
- color: var(--text-color);
+ color: var(--secondary-text);
 }
 
 .about-text h4 {
@@ -291,7 +297,7 @@ span {
 .about-text ul {
  list-style: none;
  font-size: 1.6rem;
- color: var(--text-color);
+ color: var(--secondary-text);
 }
 
 .about-text ul li {
@@ -317,6 +323,7 @@ span {
 .portfolio-item {
  background: var(--secondary-bg);
  padding: 2rem;
+ border: 1px solid var(--border-color); /* Light gray border */
  border-radius: 1rem;
  text-align: center;
  transition: 0.3s ease;
@@ -325,6 +332,7 @@ span {
  display: flex;
  flex-direction: column;
  justify-content: flex-start;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
 .portfolio-item:hover {
@@ -349,18 +357,18 @@ span {
 .portfolio-item p {
  font-size: 1.4rem;
  margin-bottom: 2rem;
- color: var(--text-color);
+ color: var(--secondary-text);
  flex-grow: 1;
 }
 
 .portfolio-item .btn {
  display: inline-block;
  padding: 1rem 2.5rem;
- background: var(--bg-color);
+ background: var(--button-bg);
  border: 2px solid var(--accent-color);
  border-radius: 2rem;
  font-size: 1.6rem;
- color: var(--accent-color);
+ color: var(--button-text);
  font-weight: 600;
  transition: 0.3s ease;
  width: 100%;
@@ -369,8 +377,8 @@ span {
 }
 
 .portfolio-item .btn:hover {
- background: var(--accent-color);
- color: var(--bg-color);
+ background: var(--button-hover);
+ color: var(--button-text);
  transform: scale(1.05);
  box-shadow: 0 0 15px var(--shadow-color);
 }
@@ -391,7 +399,7 @@ span {
 .contact-info p {
  font-size: 1.6rem;
  margin-bottom: 1.5rem;
- color: var(--text-color);
+ color: var(--secondary-text);
 }
 
 .contact-info p i {
@@ -410,7 +418,7 @@ span {
  padding: 1.5rem;
  font-size: 1.6rem;
  background: var(--secondary-bg);
- border: 2px solid var(--accent-color);
+ border: 2px solid var(--border-color);
  border-radius: 0.5rem;
  color: var(--text-color);
 }
@@ -423,9 +431,9 @@ span {
 footer {
  text-align: center;
  padding: 2rem;
- background: var(--secondary-bg);
+ background: var(--header-footer-bg);
  font-size: 1.4rem;
- color: var(--text-color);
+ color: var(--secondary-text);
 }
 
 .footer-social-links a {

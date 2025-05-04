@@ -29,33 +29,33 @@
   font-size: 2rem;
   margin: 2rem 0;
   border-bottom: none;
-  color: var(--text-color); /* Ensure consistent text color */
-  width: 100%; /* Ensure full width for scaling */
+  color: var(--text-color);
+  width: 100%;
   text-align: center;
-  padding: 1rem 0; /* Add padding for better touch area */
+  padding: 1rem 0;
  }
 
  nav a:hover,
  nav a.active {
-  color: var(--bg-color); /* Contrast with accent background */
+  color: var(--bg-color);
   background: var(--accent-color);
   padding: 1rem;
   border-radius: 0.5rem;
-  transform: scale(1.1); /* Added scaling effect on hover */
+  transform: scale(1.1);
  }
 
  .light-theme nav {
-  background: var(--secondary-bg); /* Consistent with light theme */
+  background: var(--secondary-bg);
  }
 
  .light-theme nav a {
-  color: var(--text-color); /* Ensure light theme text color */
+  color: var(--text-color);
  }
 
  .light-theme nav a:hover,
  .light-theme nav a.active {
   background: var(--accent-color);
-  color: var(--bg-color); /* Contrast in light theme */
+  color: var(--bg-color);
  }
 
  .home {
