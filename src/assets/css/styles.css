@@ -4,7 +4,7 @@
 :root {
  /* Dark Theme Variables */
  --bg-color: #1a1a1a; /* Dark background */
- --text-color: #e0e0e0; /* Light gray text (not pure white) */
+ --text-color: #d1d5db; /* Softer light gray text (instead of #e0e0e0) */
  --accent-color: #39c5a7; /* Cyan */
  --secondary-bg: #2a2a2a; /* Slightly lighter dark for cards */
  --shadow-color: rgba(57, 197, 167, 0.5); /* Cyan shadow */
@@ -12,14 +12,19 @@
 
 .light-theme {
  /* Light Theme Variables */
- --bg-color: #e8ecef; /* Soft light gray background (not pure white) */
- --text-color: #343a40; /* Dark gray text (not pure black) */
+ --bg-color: #f0f4f8; /* Softer light gray background (instead of #e8ecef) */
+ --text-color: #4b5563; /* Softer dark gray text (instead of #343a40) */
  --accent-color: #39c5a7; /* Cyan, unchanged */
- --secondary-bg: #f1f3f5; /* Very light gray for cards (not pure white) */
+ --secondary-bg: #f9fafb; /* Very light gray for cards (instead of #f1f3f5) */
  --shadow-color: rgba(57, 197, 167, 0.3); /* Softer cyan shadow */
 }
 
 /* Light Theme Specific Styles */
+.light-theme nav a {
+ color: var(--text-color); /* Ensure nav links are visible in light theme */
+}
+
+.light-theme nav a:hover,
 .light-theme nav a.active {
  color: var(--accent-color);
  border-bottom: 3px solid var(--accent-color);
@@ -65,7 +70,7 @@ header {
 }
 
 .light-theme header {
- background: rgba(241, 243, 245, 0.9); /* Semi-transparent light */
+ background: rgba(243, 244, 246, 0.9); /* Softer semi-transparent light (instead of #f1f3f5) */
 }
 
 .logo {
@@ -99,6 +104,11 @@ nav a.active {
  font-size: 2.5rem;
  color: var(--accent-color);
  cursor: pointer;
+ transition: 0.3s ease; /* Added for scaling animation */
+}
+
+.menu-toggle:hover {
+ transform: scale(1.1); /* Same as logo */
 }
 
 .theme-toggle {
@@ -226,15 +236,14 @@ span {
  animation: cursor-blink 0.6s steps(1) infinite;
 }
 
-/* Removed duplicate @keyframes for cursor-blink */
 @keyframes cursor-blink {
  0%,
  50% {
-  opacity: 1; /* Cursor visible */
+  opacity: 1;
  }
  51%,
  100% {
-  opacity: 0; /* Cursor hidden */
+  opacity: 0;
  }
 }
 
@@ -304,13 +313,6 @@ span {
  padding: 2rem 0;
 }
 
-.portfolio-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
- gap: 3rem;
- padding: 2rem 0;
-}
-
 .portfolio-item {
  background: var(--secondary-bg);
  padding: 2rem;
@@ -318,10 +320,10 @@ span {
  text-align: center;
  transition: 0.3s ease;
  position: relative;
- min-height: 45rem; /* Minimum height to ensure button stays at bottom */
+ min-height: 45rem;
  display: flex;
  flex-direction: column;
- justify-content: flex-start; /* Align content to top, button to bottom */
+ justify-content: flex-start;
 }
 
 .portfolio-item:hover {
@@ -347,7 +349,7 @@ span {
  font-size: 1.4rem;
  margin-bottom: 2rem;
  color: var(--text-color);
- flex-grow: 1; /* Allows text to expand and push button to bottom */
+ flex-grow: 1;
 }
 
 .portfolio-item .btn {
@@ -361,8 +363,8 @@ span {
  font-weight: 600;
  transition: 0.3s ease;
  width: 100%;
- max-width: 20rem; /* Limits button width */
- margin: 0 auto 1rem auto; /* Centers button and adds bottom margin */
+ max-width: 20rem;
+ margin: 0 auto 1rem auto;
 }
 
 .portfolio-item .btn:hover {
@@ -429,7 +431,7 @@ footer {
  width: 3rem;
  height: 3rem;
  font-size: 2rem;
- margin: 0 1rem 1.5rem; /* Added 1.5rem margin-bottom for spacing */
+ margin: 0 1rem 1.5rem;
  display: inline-flex;
  justify-content: center;
  align-items: center;
