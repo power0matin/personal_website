@@ -9,7 +9,7 @@
   <meta name="author" content="Matin Shahabadi" />
   <meta name="keywords" content="Matin Shahabadi, about, web developer, designer, portfolio" />
 
-  <!-- Open Graph (for social media previews) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Matin Shahabadi | About" />
   <meta
    property="og:description"
@@ -21,9 +21,8 @@
   <meta property="og:image:alt" content="About page image of Matin Shahabadi" />
   <meta property="og:url" content="https://power0matin.github.io/personal_website/about.html" />
   <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
-  <!-- Replace with your actual Facebook App ID -->
 
-  <!-- Twitter Cards -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Matin Shahabadi | About" />
   <meta
@@ -47,12 +46,15 @@
  </head>
 
  <body>
+  <!-- Header -->
   <header>
    <a href="/index.html" class="logo">Matin Shahabadi</a>
-   <div class="theme-toggle"><i class="fas fa-moon"></i></div>
-   <div class="menu-toggle" aria-label="Toggle navigation menu">
+   <button class="theme-toggle" aria-label="Toggle light/dark theme">
+    <i class="fas fa-moon"></i>
+   </button>
+   <button class="menu-toggle" aria-label="Toggle navigation menu">
     <i class="fas fa-bars"></i>
-   </div>
+   </button>
    <nav>
     <a href="/index.html">Home</a>
     <a href="/src/pages/about.html" class="active">About</a>
@@ -61,44 +63,62 @@
    </nav>
   </header>
 
-  <section class="about">
-   <h2>About Me</h2>
-   <div class="about-content">
-    <div class="about-img">
-     <img src="/src/assets/images/main.jpg" alt="Profile Picture" />
+  <!-- About Section -->
+  <main>
+   <section class="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+     <figure class="about-img">
+      <img src="/src/assets/images/main.jpg" alt="Profile Picture of Matin Shahabadi" />
+     </figure>
+     <div class="about-text">
+      <h3>Matin Shahabadi</h3>
+      <p>
+       I'm a skilled web developer with expertise in
+       <strong>HTML, CSS, JavaScript</strong>
+       and backend technologies like
+       <strong>Flask</strong>
+       . I enjoy creating responsive and interactive websites that provide great user experiences.
+      </p>
+      <h4>Skills</h4>
+      <ul>
+       <li>HTML5, CSS3, JavaScript</li>
+       <li>React, Flask, Python</li>
+       <li>Responsive Web Design</li>
+       <li>UI/UX Design Principles</li>
+      </ul>
+      <h4>Education</h4>
+      <p>B.Sc. in Computer Science, [Your University], [Year]</p>
+     </div>
     </div>
-    <div class="about-text">
-     <h3>Matin Shahabadi</h3>
-     <p>
-      I'm a skilled web developer with expertise in HTML, CSS, JavaScript, and backend technologies
-      like Flask. I enjoy creating responsive and interactive websites that provide great user
-      experiences.
-     </p>
-     <h4>Skills</h4>
-     <ul>
-      <li>HTML5, CSS3, JavaScript</li>
-      <li>React, Flask, Python</li>
-      <li>Responsive Web Design</li>
-      <li>UI/UX Design Principles</li>
-     </ul>
-     <h4>Education</h4>
-     <p>B.Sc. in Computer Science, [Your University], [Year]</p>
-    </div>
-   </div>
-  </section>
+   </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-   <div class="footer-social-links">
-    <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
+   <div class="footer-social-links" aria-label="Social media links">
+    <a
+     href="https://linkedin.com/in/matin-shahabadi"
+     aria-label="LinkedIn"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-linkedin"></i>
     </a>
-    <a href="https://github.com/power0matin/" aria-label="GitHub">
+    <a
+     href="https://github.com/power0matin/"
+     aria-label="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-github"></i>
     </a>
-    <a href="https://x.com/matin0op" aria-label="Twitter">
+    <a href="https://x.com/matin0op" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
      <i class="fa-brands fa-x-twitter"></i>
     </a>
-    <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
+    <a
+     href="https://www.instagram.com/powermatin"
+     aria-label="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-instagram"></i>
     </a>
    </div>
@@ -108,6 +128,7 @@
    </p>
   </footer>
 
-  <script src="/src/js/main.js"></script>
+  <!-- Scripts -->
+  <script src="/src/js/main.js" defer></script>
  </body>
 </html>

@@ -1,9 +1,9 @@
 {
- "tabWidth": 1,
- "useTabs": false,
- "semi": true,
- "singleQuote": true,
- "printWidth": 100,
- "htmlWhitespaceSensitivity": "ignore",
- "bracketSameLine": true
+ "tabWidth": 1,                // Indent size: 1 space per indentation level
+ "useTabs": false,             // Use spaces, not tabs, for indentation
+ "semi": true,                 // Add semicolons at the end of statements
+ "singleQuote": true,          // Use single quotes instead of double quotes
+ "printWidth": 100,            // Wrap lines at 100 characters
+ "htmlWhitespaceSensitivity": "ignore", // Ignore whitespace in HTML (doesn't affect layout)
+ "bracketSameLine": true       // Put the closing bracket of JSX/HTML elements on the same line
 }

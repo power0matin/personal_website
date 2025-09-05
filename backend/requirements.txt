@@ -1,6 +1,6 @@
-flask
-flask-cors
-flask-mail
+Flask
+Flask-Mail
+Flask-CORS
 python-dotenv
 requests
-jinja2
+Jinja2

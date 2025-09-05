@@ -9,7 +9,7 @@
   <meta name="author" content="Matin Shahabadi" />
   <meta name="keywords" content="Matin Shahabadi, contact, web developer, designer, portfolio" />
 
-  <!-- Open Graph (for social media previews) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Matin Shahabadi | Contact" />
   <meta
    property="og:description"
@@ -21,9 +21,8 @@
   <meta property="og:image:alt" content="Contact page image of Matin Shahabadi" />
   <meta property="og:url" content="https://power0matin.github.io/personal_website/contact.html" />
   <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
-  <!-- Replace with your actual Facebook App ID -->
 
-  <!-- Twitter Cards -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Matin Shahabadi | Contact" />
   <meta
@@ -47,12 +46,15 @@
  </head>
 
  <body>
+  <!-- Header -->
   <header>
    <a href="/index.html" class="logo">Matin Shahabadi</a>
-   <div class="theme-toggle"><i class="fas fa-moon"></i></div>
-   <div class="menu-toggle" aria-label="Toggle navigation menu">
+   <button class="theme-toggle" aria-label="Toggle light/dark theme">
+    <i class="fas fa-moon"></i>
+   </button>
+   <button class="menu-toggle" aria-label="Toggle navigation menu">
     <i class="fas fa-bars"></i>
-   </div>
+   </button>
    <nav>
     <a href="/index.html">Home</a>
     <a href="/src/pages/about.html">About</a>
@@ -61,55 +63,94 @@
    </nav>
   </header>
 
-  <section class="contact">
-   <h2>Contact Me</h2>
-   <div class="contact-content">
-    <div class="contact-info">
-     <h3>Get in Touch</h3>
-     <p>
-      <i class="fas fa-envelope"></i>
-      matinshahabadi3@gmail.com
-     </p>
-     <!-- <p><i class="fas fa-phone"></i> +98 123 456 7890</p> -->
-     <div class="social-icons">
-      <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
-       <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/power0matin/" aria-label="GitHub">
-       <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://x.com/matin0op" aria-label="Twitter">
-       <i class="fa-brands fa-x-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
-       <i class="fa-brands fa-instagram"></i>
-      </a>
-     </div>
-    </div>
-    <div class="contact-form">
-     <h3>Send a Message</h3>
-     <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
+  <!-- Contact Section -->
+  <main>
+   <section class="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-content">
+     <!-- Contact Info -->
+     <aside class="contact-info">
+      <h3>Get in Touch</h3>
+      <p>
+       <i class="fas fa-envelope"></i>
+       <a href="mailto:matinshahabadi3@gmail.com">matinshahabadi3@gmail.com</a>
+      </p>
+      <!-- <p><i class="fas fa-phone"></i> +98 123 456 7890</p> -->
+      <div class="social-icons" aria-label="Social media links">
+       <a
+        href="https://linkedin.com/in/matin-shahabadi"
+        aria-label="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+       </a>
+       <a
+        href="https://github.com/power0matin/"
+        aria-label="GitHub"
+        target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+       </a>
+       <a
+        href="https://x.com/matin0op"
+        aria-label="Twitter"
+        target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-brands fa-x-twitter"></i>
+       </a>
+       <a
+        href="https://www.instagram.com/powermatin"
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i>
+       </a>
+      </div>
+     </aside>
+
+     <!-- Contact Form -->
+     <form class="contact-form" id="contact-form">
+      <h3>Send a Message</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
       <button type="submit" class="btn">Send Message</button>
      </form>
     </div>
-   </div>
-  </section>
+   </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-   <div class="footer-social-links">
-    <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
+   <div class="footer-social-links" aria-label="Social media links">
+    <a
+     href="https://linkedin.com/in/matin-shahabadi"
+     aria-label="LinkedIn"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-linkedin"></i>
     </a>
-    <a href="https://github.com/power0matin/" aria-label="GitHub">
+    <a
+     href="https://github.com/power0matin/"
+     aria-label="GitHub"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-github"></i>
     </a>
-    <a href="https://x.com/matin0op" aria-label="Twitter">
+    <a href="https://x.com/matin0op" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
      <i class="fa-brands fa-x-twitter"></i>
     </a>
-    <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
+    <a
+     href="https://www.instagram.com/powermatin"
+     aria-label="Instagram"
+     target="_blank"
+     rel="noopener noreferrer">
      <i class="fa-brands fa-instagram"></i>
     </a>
    </div>
@@ -119,7 +160,8 @@
    </p>
   </footer>
 
-  <script src="/src/js/main.js"></script>
-  <script src="/src/js/form-handler.js"></script>
+  <!-- Scripts -->
+  <script src="/src/js/main.js" defer></script>
+  <script src="/src/js/form-handler.js" defer></script>
  </body>
 </html>
