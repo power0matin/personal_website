@@ -1,32 +1,26 @@
-/* ==========================================================
-   Responsive: Tablet & Small Desktops
-   Max-width: 995px
-   ========================================================== */
 @media (max-width: 995px) {
- /* Header adjustments */
  header {
   padding: 1.5rem 5%;
  }
 
- /* Menu toggle visible */
  .menu-toggle {
   display: block;
  }
 
- /* Navigation menu */
  nav {
   position: absolute;
   top: 100%;
   right: -100%;
   width: 50%;
   height: 100vh;
-  background: var(--color-surface);
+  background: var(--secondary-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  transition: right 0.3s ease;
+  transition: 0.3s ease;
  }
+
  nav.active {
   right: 0;
  }
@@ -34,79 +28,97 @@
  nav a {
   font-size: 2rem;
   margin: 2rem 0;
+  border-bottom: none;
+  color: var(--text-color);
   width: 100%;
   text-align: center;
   padding: 1rem 0;
-  border-bottom: none;
-  color: var(--color-text);
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
  }
+
  nav a:hover,
  nav a.active {
-  color: var(--color-bg);
-  background: var(--color-accent);
+  color: var(--bg-color);
+  background: var(--accent-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
   transform: scale(1.1);
  }
 
- /* Light theme nav adjustments */
  .light-theme nav {
-  background: var(--color-surface);
- }
- .light-theme nav a {
-  color: var(--color-text);
- }
- .light-theme nav a:hover,
- .light-theme nav a.active {
-  color: var(--color-bg);
-  background: var(--color-accent);
+  background: var(--secondary-bg);
  }
 
- /* Home section adjustments */
+ .light-theme nav a {
+  color: var(--text-color);
+ }
+
+ .light-theme nav a:hover,
+ .light-theme nav a.active {
+  background: var(--accent-color);
+  color: var(--bg-color);
+ }
+
  .home {
   flex-direction: column;
   gap: 4rem;
   padding: 10rem 5% 5rem;
  }
+
+ .light-theme .home {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+ }
+
  .home-img img {
   width: 50vw;
  }
+
  .home-content h1 {
   font-size: 4.5rem;
  }
+
  .home-content h3 {
   font-size: 2.8rem;
  }
+
  .home-content p {
   font-size: 1.4rem;
  }
 
- /* About & Contact adjustments */
- .about-content,
- .contact-content {
+ .about-content {
   flex-direction: column;
  }
+
+ .light-theme .about-content,
+ .light-theme .contact-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+ }
+
  .about-img img {
   width: 70vw;
  }
+
+ .contact-content {
+  flex-direction: column;
+ }
 }
 
-/* ==========================================================
-   Responsive: Mobile
-   Max-width: 600px
-   ========================================================== */
 @media (max-width: 600px) {
  html {
   font-size: 55%;
  }
 
- /* Home section */
  .home-img img {
   width: 70vw;
  }
 
- /* Portfolio grid single column */
  .portfolio-grid {
   grid-template-columns: 1fr;
+ }
+
+ .light-theme .portfolio-grid {
+  background-color: var(--bg-color);
+  color: var(--text-color);
  }
 }

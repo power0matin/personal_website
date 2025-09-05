@@ -1,58 +1,52 @@
-/* ==========================================================
-   Fonts
-   ========================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-/* ==========================================================
-   Theme Variables
-   ========================================================== */
+/* Define theme variables */
 :root {
- /* Dark Theme */
- --color-bg: #1a1a1a;
- --color-text: #d1d5db;
- --color-accent: #39c5a7;
- --color-surface: #2a2a2a;
- --color-shadow: rgba(57, 197, 167, 0.5);
- --color-border: #333;
- --color-secondary-text: #9ca3af;
-
- /* Buttons */
- --color-btn-bg: var(--color-accent);
- --color-btn-text: #fff;
- --color-btn-hover: #2da891;
-
- /* Header/Footer */
- --color-header-footer: rgba(26, 26, 26, 0.8);
+ /* Dark Theme Variables */
+ --bg-color: #1a1a1a; /* Dark background */
+ --text-color: #d1d5db; /* Softer light gray text */
+ --accent-color: #39c5a7; /* Cyan */
+ --secondary-bg: #2a2a2a; /* Slightly lighter dark for cards */
+ --shadow-color: rgba(57, 197, 167, 0.5); /* Cyan shadow */
 }
 
 .light-theme {
- /* Light Theme */
- --color-bg: #f8fafc;
- --color-text: #1f2937;
- --color-accent: #39c5a7;
- --color-surface: #ffffff;
- --color-shadow: rgba(57, 197, 167, 0.2);
- --color-border: #e5e7eb;
- --color-secondary-text: #6b7280;
-
- /* Buttons */
- --color-btn-bg: var(--color-accent);
- --color-btn-text: #ffffff;
- --color-btn-hover: #2da891;
-
- /* Header/Footer */
- --color-header-footer: #edf2f7;
+ /* Light Theme Variables */
+ --bg-color: #f8fafc; /* Warmer soft white background */
+ --text-color: #1f2937; /* Darker gray-blue for main text */
+ --accent-color: #39c5a7; /* Cyan, unchanged */
+ --secondary-bg: #ffffff; /* Pure white for cards with shadow */
+ --shadow-color: rgba(57, 197, 167, 0.2); /* Softer cyan shadow */
+ --secondary-text: #6b7280; /* Medium gray for secondary text */
+ --border-color: #e5e7eb; /* Light gray for borders */
+ --header-footer-bg: #edf2f7; /* Soft gray for header/footer */
+ --button-text: #ffffff; /* White for button text */
+ --button-bg: #39c5a7; /* Cyan for button background */
+ --button-hover: #2da891; /* Darker cyan for button hover */
 }
 
-/* ==========================================================
-   Global Reset & Base Styles
-   ========================================================== */
-*,
-*::before,
-*::after {
+/* Light Theme Specific Styles */
+.light-theme nav a {
+ color: var(--text-color); /* Ensure nav links are visible in light theme */
+}
+
+.light-theme nav a:hover,
+.light-theme nav a.active {
+ color: var(--accent-color);
+ border-bottom: 3px solid var(--accent-color);
+}
+
+/* Global styles */
+* {
  margin: 0;
  padding: 0;
  box-sizing: border-box;
+ text-decoration: none;
+ border: none;
+ outline: none;
+ font-family: 'Poppins', sans-serif;
+ transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+  box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 html {
@@ -61,118 +55,107 @@ html {
 }
 
 body {
- font-family: 'Poppins', sans-serif;
- background: var(--color-bg);
- color: var(--color-text);
  width: 100%;
  min-height: 100vh;
  overflow-x: hidden;
- line-height: 1.5;
+ background-color: var(--bg-color);
+ color: var(--text-color);
 }
 
-a {
- text-decoration: none;
- color: inherit;
-}
-
-button,
-input,
-textarea {
- border: none;
- outline: none;
- font-family: inherit;
-}
-
-/* Smooth transitions */
-* {
- transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
-  box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* ==========================================================
-   Header & Navigation
-   ========================================================== */
 header {
  position: fixed;
  top: 0;
  left: 0;
  width: 100%;
  padding: 1.5rem 9%;
- background: var(--color-header-footer);
+ background: rgba(26, 26, 26, 0.8); /* Semi-transparent dark */
  display: flex;
  justify-content: space-between;
  align-items: center;
  z-index: 100;
 }
 
+.light-theme header {
+ background: var(--header-footer-bg); /* Soft gray for header */
+}
+
 .logo {
  font-size: 3rem;
+ color: var(--accent-color);
  font-weight: 800;
- color: var(--color-accent);
- transition: transform 0.3s ease;
+ transition: 0.3s ease;
 }
+
 .logo:hover {
  transform: scale(1.1);
 }
 
 nav a {
  font-size: 1.8rem;
- font-weight: 500;
+ color: var(--text-color);
  margin-left: 4rem;
- padding-bottom: 0.3rem;
+ font-weight: 500;
+ transition: 0.3s ease;
  border-bottom: 3px solid transparent;
- transition: all 0.3s ease;
 }
+
 nav a:hover,
 nav a.active {
- color: var(--color-accent);
- border-color: var(--color-accent);
- transform: scale(1.05);
+ color: var(--accent-color);
+ border-bottom: 3px solid var(--accent-color);
+ transform: scale(1.1); /* Added scaling effect on hover */
 }
 
 .menu-toggle {
  display: none;
  font-size: 2.5rem;
- color: var(--color-accent);
+ color: var(--accent-color);
  cursor: pointer;
+ transition: 0.3s ease;
 }
 
-/* Theme Toggle */
+.menu-toggle:hover {
+ transform: scale(1.1);
+}
+
 .theme-toggle {
  display: flex;
  align-items: center;
- margin-left: 2rem;
  cursor: pointer;
-}
-.theme-toggle i {
- font-size: 2.5rem;
- color: var(--color-accent);
+ margin-left: 2rem;
 }
 
-/* ==========================================================
-   Sections
-   ========================================================== */
+.theme-toggle i {
+ font-size: 2.5rem;
+ color: var(--accent-color);
+ transition: transform 0.3s ease;
+}
+
+.theme-toggle i:hover {
+ transform: scale(1.1);
+}
+
 section {
  min-height: 100vh;
  padding: 10rem 9% 5rem;
- background: var(--color-bg);
+ background-color: var(--bg-color);
 }
 
-/* ==========================================================
-   Home Section
-   ========================================================== */
 .home {
  display: flex;
- align-items: center;
  justify-content: center;
+ align-items: center;
  gap: 8rem;
+ background-color: var(--bg-color);
 }
 
 .home-img img {
  width: 25vw;
  border-radius: 50%;
- box-shadow: 0 0 25px var(--color-shadow);
+ box-shadow: 0 0 25px var(--shadow-color);
+ transition: 0.3s ease;
 }
+
 .home-img img:hover {
  transform: scale(1.05);
 }
@@ -181,80 +164,86 @@ section {
  font-size: 6rem;
  font-weight: 700;
  line-height: 1.3;
+ color: var(--text-color);
 }
+
 .home-content h3 {
  font-size: 3.5rem;
  font-weight: 700;
  margin-bottom: 1rem;
+ color: var(--text-color);
 }
+
 .home-content p {
  font-size: 1.6rem;
  line-height: 1.8;
  margin-bottom: 2rem;
- color: var(--color-secondary-text);
+ color: var(--secondary-text); /* Secondary text color */
 }
 
 span {
- color: var(--color-accent);
+ color: var(--accent-color);
 }
 
-/* Social Links */
-.social-icons a,
-.footer-social-links a {
+.social-icons a {
  display: inline-flex;
  justify-content: center;
  align-items: center;
  width: 4.5rem;
  height: 4.5rem;
+ background: transparent;
+ border: 0.2rem solid var(--accent-color);
  font-size: 2.2rem;
  border-radius: 50%;
- border: 0.2rem solid var(--color-accent);
- color: var(--color-accent);
- transition: all 0.3s ease;
-}
-.social-icons a:hover,
-.footer-social-links a:hover {
- background: var(--color-accent);
- color: var(--color-bg);
- transform: scale(1.2);
- box-shadow: 0 0 15px var(--color-shadow);
+ margin: 0 1.5rem 3rem 0;
+ color: var(--accent-color);
+ transition: 0.3s ease;
 }
 
-/* ==========================================================
-   Buttons
-   ========================================================== */
+.social-icons a:hover {
+ color: var(--bg-color);
+ background: var(--accent-color);
+ transform: scale(1.2);
+ box-shadow: 0 0 15px var(--shadow-color);
+}
+
 .btn {
  display: inline-block;
  padding: 1.2rem 3rem;
- font-size: 1.6rem;
- font-weight: 600;
+ background: var(--button-bg); /* Cyan background */
+ border: 2px solid var(--accent-color);
  border-radius: 4rem;
- border: 2px solid var(--color-accent);
- background: var(--color-btn-bg);
- color: var(--color-btn-text);
-}
-.btn:hover {
- background: var(--color-btn-hover);
- transform: scale(1.05);
- box-shadow: 0 0 15px var(--color-shadow);
+ font-size: 1.6rem;
+ color: var(--button-text); /* White text */
+ font-weight: 600;
+ transition: 0.3s ease;
 }
 
-/* ==========================================================
-   Typing Animation
-   ========================================================== */
+.btn:hover {
+ background: var(--button-hover); /* Darker cyan on hover */
+ color: var(--button-text);
+ transform: scale(1.05);
+ box-shadow: 0 0 15px var(--shadow-color);
+}
+
 .typing-text {
  font-size: 3.4rem;
  font-weight: 600;
- min-width: 28rem;
+ min-width: 280px;
+ display: inline-block;
 }
-.typing-text #typed-text {
- color: var(--color-accent);
+
+.typing-text span#typed-text {
+ color: var(--accent-color);
 }
-.typing-text .cursor {
- color: var(--color-accent);
- animation: blink 0.6s steps(1) infinite;
+
+.typing-text span.cursor {
+ display: inline-block;
+ color: var(--accent-color);
+ animation: cursor-blink 0.6s steps(1) infinite;
 }
-@keyframes blink {
+
+@keyframes cursor-blink {
  0%,
  50% {
   opacity: 1;
@@ -265,15 +254,13 @@ span {
  }
 }
 
-/* ==========================================================
-   About Section
-   ========================================================== */
 .about h2,
 .portfolio h2,
 .contact h2 {
  font-size: 4rem;
  text-align: center;
  margin-bottom: 4rem;
+ color: var(--text-color);
 }
 
 .about-content {
@@ -281,62 +268,78 @@ span {
  gap: 5rem;
  align-items: center;
 }
+
 .about-img img {
  width: 30vw;
  border-radius: 1rem;
- box-shadow: 0 0 15px var(--color-shadow);
+ box-shadow: 0 0 15px var(--shadow-color);
 }
+
 .about-text h3 {
  font-size: 3rem;
  margin-bottom: 1rem;
+ color: var(--text-color);
 }
+
 .about-text p {
  font-size: 1.6rem;
+ line-height: 1.8;
  margin-bottom: 2rem;
- color: var(--color-secondary-text);
+ color: var(--secondary-text);
 }
+
 .about-text h4 {
  font-size: 2.2rem;
  margin: 2rem 0 1rem;
+ color: var(--text-color);
 }
+
 .about-text ul {
  list-style: none;
+ font-size: 1.6rem;
+ color: var(--secondary-text);
 }
+
 .about-text ul li {
  margin-bottom: 1rem;
  padding-left: 2rem;
  position: relative;
 }
+
 .about-text ul li::before {
  content: '✔';
- color: var(--color-accent);
+ color: var(--accent-color);
  position: absolute;
  left: 0;
 }
 
-/* ==========================================================
-   Portfolio Section
-   ========================================================== */
 .portfolio-grid {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
  gap: 3rem;
+ padding: 2rem 0;
 }
+
 .portfolio-item {
- background: var(--color-surface);
+ background: var(--secondary-bg);
  padding: 2rem;
- border: 1px solid var(--color-border);
+ border: 1px solid var(--border-color); /* Light gray border */
  border-radius: 1rem;
  text-align: center;
- transition: all 0.3s ease;
+ transition: 0.3s ease;
+ position: relative;
+ min-height: 45rem;
  display: flex;
  flex-direction: column;
- min-height: 45rem;
+ justify-content: flex-start;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
+
 .portfolio-item:hover {
  transform: translateY(-5px);
- box-shadow: 0 0 15px var(--color-shadow);
+ box-shadow: 0 0 15px var(--shadow-color);
 }
+
 .portfolio-item img {
  width: 100%;
  height: 20rem;
@@ -344,76 +347,113 @@ span {
  border-radius: 0.5rem;
  margin-bottom: 1.5rem;
 }
+
 .portfolio-item h3 {
  font-size: 2.2rem;
  margin-bottom: 1rem;
+ color: var(--text-color);
 }
+
 .portfolio-item p {
  font-size: 1.4rem;
  margin-bottom: 2rem;
- color: var(--color-secondary-text);
+ color: var(--secondary-text);
  flex-grow: 1;
 }
+
 .portfolio-item .btn {
+ display: inline-block;
+ padding: 1rem 2.5rem;
+ background: var(--button-bg);
+ border: 2px solid var(--accent-color);
+ border-radius: 2rem;
+ font-size: 1.6rem;
+ color: var(--button-text);
+ font-weight: 600;
+ transition: 0.3s ease;
+ width: 100%;
  max-width: 20rem;
- margin: 0 auto 1rem;
+ margin: 0 auto 1rem auto;
 }
 
-/* ==========================================================
-   Contact Section
-   ========================================================== */
+.portfolio-item .btn:hover {
+ background: var(--button-hover);
+ color: var(--button-text);
+ transform: scale(1.05);
+ box-shadow: 0 0 15px var(--shadow-color);
+}
+
 .contact-content {
  display: flex;
  gap: 5rem;
  justify-content: center;
 }
+
 .contact-info h3,
 .contact-form h3 {
  font-size: 2.5rem;
  margin-bottom: 2rem;
+ color: var(--text-color);
 }
+
 .contact-info p {
  font-size: 1.6rem;
  margin-bottom: 1.5rem;
- color: var(--color-secondary-text);
+ color: var(--secondary-text);
 }
+
 .contact-info p i {
- color: var(--color-accent);
+ color: var(--accent-color);
  margin-right: 1rem;
 }
+
 .contact-form form {
  display: flex;
  flex-direction: column;
  gap: 2rem;
 }
+
 .contact-form input,
 .contact-form textarea {
  padding: 1.5rem;
  font-size: 1.6rem;
- border: 2px solid var(--color-border);
+ background: var(--secondary-bg);
+ border: 2px solid var(--border-color);
  border-radius: 0.5rem;
- background: var(--color-surface);
- color: var(--color-text);
+ color: var(--text-color);
 }
+
 .contact-form textarea {
  resize: vertical;
  min-height: 15rem;
 }
 
-/* ==========================================================
-   Footer
-   ========================================================== */
 footer {
  text-align: center;
  padding: 2rem;
- background: var(--color-header-footer);
+ background: var(--header-footer-bg);
  font-size: 1.4rem;
- color: var(--color-secondary-text);
+ color: var(--secondary-text);
 }
+
 .footer-social-links a {
  width: 3rem;
  height: 3rem;
  font-size: 2rem;
  margin: 0 1rem 1.5rem;
- border: 0.15rem solid var(--color-accent);
+ display: inline-flex;
+ justify-content: center;
+ align-items: center;
+ background: transparent;
+ border: 0.15rem solid var(--accent-color);
+ border-radius: 50%;
+ color: var(--accent-color);
+ transition: 0.3s ease;
+}
+
+.footer-social-links a:hover {
+ color: var(--bg-color);
+ background: var(--accent-color);
+ transform: scale(1.2);
+ box-shadow: 0 0 15px var(--shadow-color);
 }
