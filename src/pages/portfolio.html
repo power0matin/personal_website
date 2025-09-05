@@ -9,7 +9,7 @@
    name="keywords"
    content="Matin Shahabadi, portfolio, web developer, designer, frontend, backend, Python, HTML, CSS" />
 
-  <!-- Open Graph (Social Media Previews) -->
+  <!-- Open Graph (for social media previews) -->
   <meta property="og:title" content="Matin Shahabadi | Portfolio" />
   <meta
    property="og:description"
@@ -21,6 +21,7 @@
   <meta property="og:image:alt" content="Portfolio page image of Matin Shahabadi" />
   <meta property="og:url" content="https://power0matin.github.io/personal_website" />
   <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
+  <!-- Replace with your actual Facebook App ID -->
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -30,27 +31,23 @@
    name="twitter:image"
    content="https://power0matin.github.io/personal_website/src/assets/images/image.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-  <!-- Fonts & Styles -->
+  <!-- Styles -->
   <link
    rel="stylesheet"
    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="/src/assets/css/styles.css" />
+  <link rel="stylesheet" href="/src/assets/css/responsive.css" />
 
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
   <title>Matin Shahabadi | Portfolio</title>
  </head>
 
  <body>
-  <!-- Header -->
   <header>
    <a href="/index.html" class="logo">Matin Shahabadi</a>
-   <div class="theme-toggle" aria-label="Toggle light/dark theme">
-    <i class="fas fa-moon"></i>
-   </div>
+   <div class="theme-toggle"><i class="fas fa-moon"></i></div>
    <div class="menu-toggle" aria-label="Toggle navigation menu">
     <i class="fas fa-bars"></i>
    </div>
@@ -62,118 +59,78 @@
    </nav>
   </header>
 
-  <!-- Portfolio Section -->
-  <main>
-   <section class="portfolio">
-    <h2>My Portfolio</h2>
-    <div class="portfolio-grid">
-     <!-- Project 1 -->
-     <div class="portfolio-item">
-      <img
-       src="/src/assets/images/Iran Provinces.jpg"
-       alt="Iran Provinces Interactive Map"
-       loading="lazy" />
-      <h3>Iran Provinces</h3>
-      <p>Interactive map and detailed information about Iran's provinces with a modern UI.</p>
-      <a
-       href="https://github.com/power0matin/iran-provinces"
-       class="btn"
-       target="_blank"
-       rel="noopener noreferrer">
-       View Project
-      </a>
-     </div>
-
-     <!-- Project 2 -->
-     <div class="portfolio-item">
-      <img
-       src="/src/assets/images/AI-Powered Internet Speed Optimizer.jpg"
-       alt="AI-Powered Internet Speed Optimizer Tool"
-       loading="lazy" />
-      <h3>AI-Powered Internet Speed Optimizer</h3>
-      <p>
-       A Python-based tool to analyze and optimize internet speed using smart algorithms and data
-       insights. Designed for better network performance, real-time monitoring, and troubleshooting
-       slow connections.
-      </p>
-      <a
-       href="https://github.com/power0matin/AI-Powered-Internet-Speed-Optimizer"
-       class="btn"
-       target="_blank"
-       rel="noopener noreferrer">
-       View Project
-      </a>
-     </div>
-
-     <!-- Project 3 -->
-     <div class="portfolio-item">
-      <img
-       src="/src/assets/images/Telegram Music Downloader Bot.jpg"
-       alt="Telegram Music Downloader Bot"
-       loading="lazy" />
-      <h3>Telegram Music Downloader Bot</h3>
-      <p>
-       A Telegram bot to download music, albums, and playlists from Spotify with user-specified
-       quality.
-      </p>
-      <a
-       href="https://github.com/power0matin/Telegram-Music-Downloader-Bot"
-       class="btn"
-       target="_blank"
-       rel="noopener noreferrer">
-       View Project
-      </a>
-     </div>
-
-     <!-- Project 4 -->
-     <div class="portfolio-item">
-      <img
-       src="/src/assets/images/Fast Food Website.jpg"
-       alt="Food Ordering System"
-       loading="lazy" />
-      <h3>Food Ordering System</h3>
-      <p>
-       A Food Ordering System built with Python and Tkinter that allows users to easily order food
-       and drinks. The application features customer management, menu management, order processing,
-       and payment handling. Designed for local use with a user-friendly graphical interface.
-      </p>
-      <a
-       href="https://github.com/power0matin/Food-ordering"
-       class="btn"
-       target="_blank"
-       rel="noopener noreferrer">
-       View Project
-      </a>
-     </div>
+  <section class="portfolio">
+   <h2>My Portfolio</h2>
+   <div class="portfolio-grid">
+    <div class="portfolio-item">
+     <img
+      src="/src/assets/images/Iran Provinces.jpg"
+      alt="Iran Provinces"
+      loading="lazy" />
+     <h3>Iran Provinces</h3>
+     <p>Interactive map and detailed information about Iran's provinces with a modern UI.</p>
+     <a href="https://github.com/power0matin/iran-provinces" class="btn">View Project</a>
     </div>
-   </section>
-  </main>
 
-  <!-- Footer -->
+    <div class="portfolio-item">
+     <img
+      src="/src/assets/images/AI-Powered Internet Speed Optimizer.jpg"
+      alt="AI-Powered Internet Speed Optimizer"
+      loading="lazy" />
+     <h3>AI-Powered Internet Speed Optimizer</h3>
+     <p>
+      A Python-based tool to analyze and optimize internet speed using smart algorithms and data
+      insights. Designed for better network performance, real-time monitoring, and troubleshooting
+      slow connections.
+     </p>
+     <a href="https://github.com/power0matin/AI-Powered-Internet-Speed-Optimizer" class="btn">
+      View Project
+     </a>
+    </div>
+
+    <div class="portfolio-item">
+     <img
+      src="/src/assets/images/Telegram Music Downloader Bot.jpg"
+      alt="Telegram Music Downloader Bot"
+      loading="lazy" />
+     <h3>Telegram Music Downloader Bot</h3>
+     <p>
+      A Telegram bot to download music, albums, and playlists from Spotify with user-specified
+      quality.
+     </p>
+     <a href="https://github.com/power0matin/Telegram-Music-Downloader-Bot" class="btn">
+      View Project
+     </a>
+    </div>
+
+    <div class="portfolio-item">
+     <img
+      src="/src/assets/images/Fast Food Website.jpg"
+      alt="Food Ordering System"
+      loading="lazy" />
+     <h3>Food Ordering System</h3>
+     <p>
+      A Food Ordering System built with Python and Tkinter that allows users to easily order food
+      and drinks. The application features customer management, menu management, order processing,
+      and payment handling. Designed for local use with a user-friendly graphical interface.
+     </p>
+     <a href="https://github.com/power0matin/Food-ordering" class="btn">View Project</a>
+    </div>
+   </div>
+  </section>
+
   <footer>
-   <div class="footer-social-links" aria-label="Social media links">
-    <a
-     href="https://linkedin.com/in/matin-shahabadi"
-     aria-label="LinkedIn"
-     target="_blank"
-     rel="noopener noreferrer">
+   <div class="footer-social-links">
+    <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
      <i class="fa-brands fa-linkedin"></i>
     </a>
-    <a
-     href="https://github.com/power0matin/"
-     aria-label="GitHub"
-     target="_blank"
-     rel="noopener noreferrer">
+    <a href="https://github.com/power0matin/" aria-label="GitHub">
      <i class="fa-brands fa-github"></i>
     </a>
-    <a href="https://x.com/matin0op" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+    <a href="https://x.com/matin0op" aria-label="Twitter">
      <i class="fa-brands fa-x-twitter"></i>
     </a>
-    <a
-     href="https://www.instagram.com/powermatin"
-     aria-label="Instagram"
-     target="_blank"
-     rel="noopener noreferrer">
+    <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
      <i class="fa-brands fa-instagram"></i>
     </a>
    </div>
@@ -183,7 +140,6 @@
    </p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/src/js/main.js" defer></script>
+  <script src="/src/js/main.js"></script>
  </body>
 </html>

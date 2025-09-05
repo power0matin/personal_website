@@ -5,12 +5,12 @@ from dotenv import load_dotenv
 from config import Config
 from email.sender import send_contact_email
 from services.recaptcha import verify_recaptcha
-import os
-
-load_dotenv()
 
 app = Flask(__name__)
 CORS(app, origins=["https://yourdomain.com", "http://localhost:3000"])
+load_dotenv()
+
+# Mail config
 app.config.from_object(Config)
 mail = Mail(app)
 
@@ -35,4 +35,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

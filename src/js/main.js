@@ -1,21 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
- /* ==========================================================
-     Mobile Menu Toggle
-     ========================================================== */
+ // Mobile menu toggle
  const menuToggle = document.querySelector('.menu-toggle');
  const nav = document.querySelector('nav');
 
- if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
+ menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+ });
 
-  nav.querySelectorAll('a').forEach((link) => {
-   link.addEventListener('click', () => nav.classList.remove('active'));
+ // Close menu when a link is clicked
+ nav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+   nav.classList.remove('active');
   });
- }
+ });
 
- /* ==========================================================
-     Typing Animation
-     ========================================================== */
+ // Typing animation
  const words = [
   'Software Developer',
   'Web Designer',
@@ -26,14 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
  const typedTextSpan = document.getElementById('typed-text');
 
  if (typedTextSpan) {
+  // Check if element exists (only on index.html)
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
   let delay = 100;
 
-  const type = () => {
+  function type() {
    const currentWord = words[wordIndex];
-   typedTextSpan.textContent = currentWord.substring(0, charIndex);
+   const currentText = currentWord.substring(0, charIndex);
+   typedTextSpan.textContent = currentText;
 
    if (!isDeleting && charIndex < currentWord.length) {
     charIndex++;
@@ -42,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     charIndex--;
     delay = 50;
    } else if (!isDeleting && charIndex === currentWord.length) {
-    isDeleting = true;
     delay = 2000;
+    isDeleting = true;
    } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     wordIndex = (wordIndex + 1) % words.length;
@@ -51,47 +52,40 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    setTimeout(type, delay);
-  };
+  }
 
   setTimeout(type, 1000);
  }
 
- /* ==========================================================
-     Theme Toggle
-     ========================================================== */
+ // Theme toggle
  const themeToggle = document.querySelector('.theme-toggle');
  const body = document.body;
 
- const applyTheme = (theme) => {
-  body.classList.toggle('light-theme', theme === 'light');
-  localStorage.setItem('theme', theme);
-  updateIcon();
- };
-
- const updateIcon = () => {
-  if (!themeToggle) return;
-  const icon = themeToggle.querySelector('i');
-  if (!icon) return;
-  const isLight = body.classList.contains('light-theme');
-  icon.classList.toggle('fa-sun', isLight);
-  icon.classList.toggle('fa-moon', !isLight);
- };
-
- // Load theme preference
+ // Check system preference and localStorage
  const savedTheme = localStorage.getItem('theme');
  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
  if (savedTheme) {
-  applyTheme(savedTheme);
+  body.classList.toggle('light-theme', savedTheme === 'light');
+ } else if (prefersDark) {
+  body.classList.remove('light-theme');
  } else {
-  applyTheme(prefersDark ? 'dark' : 'light');
+  body.classList.add('light-theme');
  }
 
+ // Update icon based on current theme
+ const updateIcon = () => {
+  const isLight = body.classList.contains('light-theme');
+  themeToggle.querySelector('i').classList.toggle('fa-moon', !isLight);
+  themeToggle.querySelector('i').classList.toggle('fa-sun', isLight);
+ };
+ updateIcon();
+
  // Toggle theme on button click
- if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-   const newTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
-   applyTheme(newTheme);
-  });
- }
+ themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-theme');
+  const isLight = body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  updateIcon();
+ });
 });
