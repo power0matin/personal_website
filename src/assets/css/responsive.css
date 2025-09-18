@@ -1,124 +1,155 @@
-@media (max-width: 995px) {
- header {
-  padding: 1.5rem 5%;
- }
+/* ======= responsive-fixes.css (drop-in) =======
+   Fixes + improvements for mobile nav, sections, and light theme.
+   Works with your existing markup: header, nav, .menu-toggle, .theme-toggle, .home, .about-content, .contact-content, .portfolio-grid
+================================================= */
 
- .menu-toggle {
-  display: block;
- }
-
- nav {
-  position: absolute;
-  top: 100%;
-  right: -100%;
-  width: 50%;
-  height: 100vh;
-  background: var(--secondary-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  transition: 0.3s ease;
- }
-
- nav.active {
-  right: 0;
- }
-
- nav a {
-  font-size: 2rem;
-  margin: 2rem 0;
-  border-bottom: none;
-  color: var(--text-color);
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
- }
-
- nav a:hover,
- nav a.active {
-  color: var(--bg-color);
-  background: var(--accent-color);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  transform: scale(1.1);
- }
-
- .light-theme nav {
-  background: var(--secondary-bg);
- }
-
- .light-theme nav a {
-  color: var(--text-color);
- }
-
- .light-theme nav a:hover,
- .light-theme nav a.active {
-  background: var(--accent-color);
-  color: var(--bg-color);
- }
-
- .home {
-  flex-direction: column;
-  gap: 4rem;
-  padding: 10rem 5% 5rem;
- }
-
- .light-theme .home {
-  background-color: var(--bg-color);
-  color: var(--text-color);
- }
-
- .home-img img {
-  width: 50vw;
- }
-
- .home-content h1 {
-  font-size: 4.5rem;
- }
-
- .home-content h3 {
-  font-size: 2.8rem;
- }
-
- .home-content p {
-  font-size: 1.4rem;
- }
-
- .about-content {
-  flex-direction: column;
- }
-
- .light-theme .about-content,
- .light-theme .contact-content {
-  background-color: var(--bg-color);
-  color: var(--text-color);
- }
-
- .about-img img {
-  width: 70vw;
- }
-
- .contact-content {
-  flex-direction: column;
- }
+/* --- Accessibility & motion safety --- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
+/* --- Prevent page scroll when mobile menu is open (toggled via JS) --- */
+body.menu-open { overflow: hidden; }
+
+/* ---------- Tablet & down ---------- */
+@media (max-width: 995px) {
+  header {
+    padding: 1.5rem 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Mobile nav: slide-in panel */
+  nav {
+    position: fixed;            /* keep relative to viewport */
+    top: calc( var(--header-height, 64px) );
+    right: 0;
+    bottom: 0;
+    width: min(75%, 360px);     /* narrower panel on mobile */
+    max-width: 92vw;
+    transform: translateX(100%); /* start off-canvas */
+    background: var(--secondary-bg);
+    border-left: 1px solid var(--border-color, rgba(255,255,255,.08));
+    z-index: 999;
+    padding: 2rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    transition: transform .3s ease;
+    overscroll-behavior: contain;
+    /* iOS safe areas */
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+
+  /* Backdrop for focus/contrast (created via pseudo element) */
+  nav::before {
+    content: "";
+    position: fixed;
+    inset: calc(var(--header-height, 64px)) 0 0 0;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  /* Open state */
+  nav.active {
+    transform: translateX(0);
+  }
+  nav.active::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Links inside panel */
+  nav a {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--text-color);
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-radius: .6rem;
+    border-bottom: none;
+    position: relative;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--bg-color);
+    background: var(--accent-color);
+    transform: none; /* avoid layout jump on mobile */
+  }
+
+  /* Light theme panel color */
+  .light-theme nav {
+    background: var(--secondary-bg);
+    border-left-color: var(--border-color, #e5e7eb);
+  }
+  .light-theme nav a {
+    color: var(--text-color);
+  }
+  .light-theme nav a:hover,
+  .light-theme nav a.active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+  }
+
+  /* Hero / home */
+  .home {
+    flex-direction: column;
+    gap: 4rem;
+    padding: 10rem 5% 5rem;
+  }
+  .light-theme .home {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  .home-img img {
+    width: 50vw;
+    max-width: 420px;
+  }
+  .home-content h1   { font-size: 4.5rem; }
+  .home-content h3   { font-size: 2.8rem; }
+  .home-content p    { font-size: 1.4rem; }
+
+  /* About / Contact stacks */
+  .about-content,
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .light-theme .about-content,
+  .light-theme .contact-content {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .about-img img {
+    width: 70vw;
+    max-width: 560px;
+  }
+}
+
+/* ---------- Small phones ---------- */
 @media (max-width: 600px) {
- html {
-  font-size: 55%;
- }
+  html { font-size: 55%; }
 
- .home-img img {
-  width: 70vw;
- }
+  /* Header height hint for the panel placement (used above) */
+  :root { --header-height: 64px; }
 
- .portfolio-grid {
-  grid-template-columns: 1fr;
- }
+  .home-img img { width: 70vw; }
 
- .light-theme .portfolio-grid {
-  background-color: var(--bg-color);
-  color: var(--text-color);
- }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .light-theme .portfolio-grid {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
 }

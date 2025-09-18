@@ -1,125 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-   name="description"
-   content="Portfolio website of Matin Shahabadi, a passionate web developer and designer." />
-  <meta name="author" content="Matin Shahabadi" />
-  <meta name="keywords" content="Matin Shahabadi, contact, web developer, designer, portfolio" />
-
-  <!-- Open Graph (for social media previews) -->
-  <meta property="og:title" content="Matin Shahabadi | Contact" />
-  <meta
-   property="og:description"
-   content="Get in touch with Matin Shahabadi, a passionate web developer and designer." />
-  <meta property="og:type" content="website" />
-  <meta
-   property="og:image"
-   content="https://power0matin.github.io/personal_website/src/assets/images/image.png" />
-  <meta property="og:image:alt" content="Contact page image of Matin Shahabadi" />
-  <meta property="og:url" content="https://power0matin.github.io/personal_website/contact.html" />
-  <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
-  <!-- Replace with your actual Facebook App ID -->
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Matin Shahabadi | Contact" />
-  <meta
-   name="twitter:description"
-   content="Contact Matin Shahabadi for web development and design services." />
-  <meta
-   name="twitter:image"
-   content="https://power0matin.github.io/personal_website/src/assets/images/image.png" />
-
-  <!-- Styles -->
-  <link
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css">
-
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact Matin Shahabadi — Web Developer & Designer." />
   <title>Matin Shahabadi | Contact</title>
- </head>
 
- <body>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
   <header>
-   <a href="../../index.html" class="logo">Matin Shahabadi</a>
-   <div class="theme-toggle"><i class="fas fa-moon"></i></div>
-   <div class="menu-toggle" aria-label="Toggle navigation menu">
-    <i class="fas fa-bars"></i>
-   </div>
-   <nav>
-    <a href="../../index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html" class="active">Contact</a>
-   </nav>
+    <div class="container bar">
+      <a href="../../index.html" class="logo">Matin Shahabadi</a>
+      <nav>
+        <a href="../../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></div>
+      <div class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></div>
+    </div>
   </header>
 
-  <section class="contact">
-   <h2>Contact Me</h2>
-   <div class="contact-content">
-    <div class="contact-info">
-     <h3>Get in Touch</h3>
-     <p>
-      <i class="fas fa-envelope"></i>
-      matinshahabadi3@gmail.com
-     </p>
-     <!-- <p><i class="fas fa-phone"></i> +98 123 456 7890</p> -->
-     <div class="social-icons">
-      <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
-       <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/power0matin/" aria-label="GitHub">
-       <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://x.com/matin0op" aria-label="Twitter">
-       <i class="fa-brands fa-x-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
-       <i class="fa-brands fa-instagram"></i>
-      </a>
-     </div>
-    </div>
-    <div class="contact-form">
-     <h3>Send a Message</h3>
-     <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-     </form>
-    </div>
-   </div>
-  </section>
+  <main class="container">
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <p class="section-sub">Got a brief, idea, or role? Let’s talk.</p>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p><i class="fa-solid fa-envelope"></i> matinshahabadi3@gmail.com</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/power0matin/" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/matin0op" aria-label="Twitter/X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Send a Message</h3>
+          <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" placeholder="Your Name" required />
+            </div>
+            <div class="field">
+              <label for="email">Your Email</label>
+              <input id="email" name="email" type="email" placeholder="Your Email" required />
+            </div>
+            <div class="field">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-   <div class="footer-social-links">
-    <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
-     <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/power0matin/" aria-label="GitHub">
-     <i class="fa-brands fa-github"></i>
-    </a>
-    <a href="https://x.com/matin0op" aria-label="Twitter">
-     <i class="fa-brands fa-x-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
-     <i class="fa-brands fa-instagram"></i>
-    </a>
-   </div>
-   <p>
-    &copy; 2025 Matin Shahabadi. All rights reserved. |
-    <a href="../src/pages/contact.html">Contact</a>
-   </p>
+    <div class="footer-social-links">
+      <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/power0matin/" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      <a href="https://x.com/matin0op" aria-label="Twitter/X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2025 Matin Shahabadi. All rights reserved. | <a href="contact.html">Contact</a></p>
   </footer>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/form-handler.js"></script>
- </body>
+  <script src="../js/main.js" defer></script>
+</body>
 </html>

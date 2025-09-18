@@ -1,113 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-   name="description"
-   content="Portfolio website of Matin Shahabadi, a passionate web developer and designer." />
-  <meta name="author" content="Matin Shahabadi" />
-  <meta name="keywords" content="Matin Shahabadi, about, web developer, designer, portfolio" />
-
-  <!-- Open Graph (for social media previews) -->
-  <meta property="og:title" content="Matin Shahabadi | About" />
-  <meta
-   property="og:description"
-   content="Learn more about Matin Shahabadi, a passionate web developer and designer." />
-  <meta property="og:type" content="website" />
-  <meta
-   property="og:image"
-   content="https://power0matin.github.io/personal_website/src/assets/images/image.png" />
-  <meta property="og:image:alt" content="About page image of Matin Shahabadi" />
-  <meta property="og:url" content="https://power0matin.github.io/personal_website/about.html" />
-  <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
-  <!-- Replace with your actual Facebook App ID -->
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Matin Shahabadi | About" />
-  <meta
-   name="twitter:description"
-   content="Discover the story of Matin Shahabadi, a passionate web developer and designer." />
-  <meta
-   name="twitter:image"
-   content="https://power0matin.github.io/personal_website/src/assets/images/image.png" />
-
-  <!-- Styles -->
-  <link
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="../assets/css/main.css">
-
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About Matin Shahabadi — Web Developer & Designer." />
   <title>Matin Shahabadi | About</title>
- </head>
 
- <body>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
   <header>
-   <a href="../../index.html" class="logo">Matin Shahabadi</a>
-   <div class="theme-toggle"><i class="fas fa-moon"></i></div>
-   <div class="menu-toggle" aria-label="Toggle navigation menu">
-    <i class="fas fa-bars"></i>
-   </div>
-   <nav>
-    <a href="../../index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-   </nav>
+    <div class="container bar">
+      <a href="../../index.html" class="logo">Matin Shahabadi</a>
+      <nav>
+        <a href="../../index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></div>
+      <div class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></div>
+    </div>
   </header>
 
-  <section class="about">
-   <h2>About Me</h2>
-   <div class="about-content">
-    <div class="about-img">
-     <img src="../assets/images/main.jpg" alt="Profile Picture" />
-    </div>
-    <div class="about-text">
-     <h3>Matin Shahabadi</h3>
-     <p>
-      I'm a skilled web developer with expertise in HTML, CSS, JavaScript, and backend technologies
-      like Flask. I enjoy creating responsive and interactive websites that provide great user
-      experiences.
-     </p>
-     <h4>Skills</h4>
-     <ul>
-      <li>HTML5, CSS3, JavaScript</li>
-      <li>React, Flask, Python</li>
-      <li>Responsive Web Design</li>
-      <li>UI/UX Design Principles</li>
-     </ul>
-     <h4>Education</h4>
-     <p>B.Sc. in Computer Science, [Your University], [Year]</p>
-    </div>
-   </div>
-  </section>
+  <main class="container">
+    <section class="about">
+      <h2>About Me</h2>
+      <p class="section-sub">A developer focused on performance, accessibility, and design systems.</p>
+
+      <div class="about-content">
+        <div class="about-img">
+          <img src="../assets/images/main.jpg" alt="Profile picture" loading="lazy" />
+        </div>
+        <div class="about-text">
+          <h3>Matin Shahabadi</h3>
+          <p>I enjoy creating responsive and interactive websites that provide great user experiences.</p>
+
+          <h4>Skills</h4>
+          <ul>
+            <li>HTML5, CSS3, JavaScript</li>
+            <li>React, Flask, Python</li>
+            <li>Responsive Web Design</li>
+            <li>UI/UX Design Principles</li>
+          </ul>
+
+          <h4>Education</h4>
+          <p>B.Sc. in Computer Science, [Your University], [Year]</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-   <div class="footer-social-links">
-    <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn">
-     <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/power0matin/" aria-label="GitHub">
-     <i class="fa-brands fa-github"></i>
-    </a>
-    <a href="https://x.com/matin0op" aria-label="Twitter">
-     <i class="fa-brands fa-x-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/powermatin" aria-label="Instagram">
-     <i class="fa-brands fa-instagram"></i>
-    </a>
-   </div>
-   <p>
-    &copy; 2025 Matin Shahabadi. All rights reserved. |
-    <a href="../pages/contact.html">Contact</a>
-   </p>
+    <div class="footer-social-links">
+      <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/power0matin/" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      <a href="https://x.com/matin0op" aria-label="Twitter/X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2025 Matin Shahabadi. All rights reserved. | <a href="contact.html">Contact</a></p>
   </footer>
 
-  <script src="../js/main.js"></script>
- </body>
+  <script src="../js/main.js" defer></script>
+</body>
 </html>

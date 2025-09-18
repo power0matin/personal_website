@@ -1,91 +1,100 @@
+// ===== main.js =====
+// Mobile nav, typing effect, theme toggle (Font Awesome icons)
+
 document.addEventListener('DOMContentLoaded', () => {
- // Mobile menu toggle
- const menuToggle = document.querySelector('.menu-toggle');
- const nav = document.querySelector('nav');
+  // ------- Mobile Menu -------
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  const body = document.body;
 
- menuToggle.addEventListener('click', () => {
-  nav.classList.toggle('active');
- });
+  const closeMenu = () => {
+    nav?.classList.remove('active');
+    body.classList.remove('menu-open');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+  };
 
- // Close menu when a link is clicked
- nav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-   nav.classList.remove('active');
-  });
- });
+  if (menuToggle && nav) {
+    nav.id ||= 'primary-nav';
+    menuToggle.setAttribute('aria-controls', nav.id);
+    menuToggle.setAttribute('aria-expanded', 'false');
 
- // Typing animation
- const words = [
-  'Software Developer',
-  'Web Designer',
-  'Backend Engineer',
-  'Script Writer',
-  'Freelancer',
- ];
- const typedTextSpan = document.getElementById('typed-text');
+    menuToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('active');
+      body.classList.toggle('menu-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
 
- if (typedTextSpan) {
-  // Check if element exists (only on index.html)
-  let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let delay = 100;
-
-  function type() {
-   const currentWord = words[wordIndex];
-   const currentText = currentWord.substring(0, charIndex);
-   typedTextSpan.textContent = currentText;
-
-   if (!isDeleting && charIndex < currentWord.length) {
-    charIndex++;
-    delay = 100;
-   } else if (isDeleting && charIndex > 0) {
-    charIndex--;
-    delay = 50;
-   } else if (!isDeleting && charIndex === currentWord.length) {
-    delay = 2000;
-    isDeleting = true;
-   } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-    delay = 500;
-   }
-
-   setTimeout(type, delay);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && closeMenu());
+    document.addEventListener('click', (e) => {
+      if (!nav.classList.contains('active')) return;
+      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
+    });
   }
 
-  setTimeout(type, 1000);
- }
+  // ------- Typing Effect (only if #typed-text exists) -------
+  const typedTextSpan = document.getElementById('typed-text');
+  const words = [
+    'Software Developer',
+    'Web Designer',
+    'Backend Engineer',
+    'Script Writer',
+    'Freelancer',
+  ];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
- // Theme toggle
- const themeToggle = document.querySelector('.theme-toggle');
- const body = document.body;
+  if (typedTextSpan) {
+    if (prefersReducedMotion) {
+      typedTextSpan.textContent = words[0];
+    } else {
+      let w = 0, c = 0, del = false, timer;
+      const loop = () => {
+        const word = words[w];
+        typedTextSpan.textContent = word.slice(0, c);
 
- // Check system preference and localStorage
- const savedTheme = localStorage.getItem('theme');
- const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (!del && c < word.length) c++;
+        else if (del && c > 0) c--;
+        else if (!del && c === word.length) { del = true; return timer = setTimeout(loop, 1400); }
+        else { del = false; w = (w + 1) % words.length; }
 
- if (savedTheme) {
-  body.classList.toggle('light-theme', savedTheme === 'light');
- } else if (prefersDark) {
-  body.classList.remove('light-theme');
- } else {
-  body.classList.add('light-theme');
- }
+        timer = setTimeout(loop, del ? 55 : 110);
+      };
+      timer = setTimeout(loop, 500);
 
- // Update icon based on current theme
- const updateIcon = () => {
-  const isLight = body.classList.contains('light-theme');
-  themeToggle.querySelector('i').classList.toggle('fa-moon', !isLight);
-  themeToggle.querySelector('i').classList.toggle('fa-sun', isLight);
- };
- updateIcon();
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearTimeout(timer);
+        else { clearTimeout(timer); timer = setTimeout(loop, 300); }
+      });
+    }
+  }
 
- // Toggle theme on button click
- themeToggle.addEventListener('click', () => {
-  body.classList.toggle('light-theme');
-  const isLight = body.classList.contains('light-theme');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  updateIcon();
- });
+  // ------- Theme Toggle -------
+  const themeToggle = document.querySelector('.theme-toggle');
+  const icon = themeToggle ? themeToggle.querySelector('i') : null;
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const applyTheme = (mode) => {
+    if (mode === 'light') body.classList.add('light-theme');
+    else body.classList.remove('light-theme');
+
+    if (icon) icon.className = body.classList.contains('light-theme')
+      ? 'fa-solid fa-sun'
+      : 'fa-solid fa-moon';
+  };
+
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') applyTheme(saved);
+  else applyTheme(media.matches ? 'dark' : 'light');
+
+  const onSystemChange = (e) => {
+    if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+  };
+  media.addEventListener?.('change', onSystemChange);
+
+  themeToggle?.addEventListener('click', () => {
+    const isLight = body.classList.toggle('light-theme');
+    const mode = isLight ? 'light' : 'dark';
+    localStorage.setItem('theme', mode);
+    applyTheme(mode);
+  });
 });
