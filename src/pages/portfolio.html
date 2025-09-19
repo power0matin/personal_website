@@ -22,7 +22,26 @@
         <a href="portfolio.html" class="active">Portfolio</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <div class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></div>
+      <!-- theme-toggle.html -->
+      <div class="theme-toggle">
+        <button id="themeButton" type="button" aria-label="Toggle theme" aria-live="polite" aria-pressed="false">
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span class="toggle-thumb" aria-hidden="true">
+            <!-- Sun -->
+            <svg class="thumb-icon sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.54 6.46-1.42-1.42M7.88 7.88 6.46 6.46m10.02 0-1.42 1.42M7.88 16.12 6.46 17.54" />
+            </svg>
+            <!-- Moon -->
+            <svg class="thumb-icon moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+        </button>
+      </div>
       <div class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></div>
     </div>
   </header>

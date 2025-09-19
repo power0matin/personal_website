@@ -1,47 +1,76 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
   <title>Modern Portfolio</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     /* =========================
        CSS RESET + TOKENS
        ========================= */
-    *,*::before,*::after{box-sizing:border-box}
-    *{margin:0}
-    html:focus-within{scroll-behavior:smooth}
-    body{min-height:100dvh;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-    img,svg,video{max-width:100%;display:block}
-    button{font:inherit}
-    a{text-decoration:none}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
 
-    :root{
+    * {
+      margin: 0
+    }
+
+    html:focus-within {
+      scroll-behavior: smooth
+    }
+
+    body {
+      min-height: 100dvh;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased
+    }
+
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      display: block
+    }
+
+    button {
+      font: inherit
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    :root {
       /* Base scale */
-      --radius:1.4rem;
-      --shadow-soft:0 10px 30px rgba(0,0,0,.18);
-      --shadow-pop:0 12px 40px rgba(57,197,167,.35);
-      --ring:0 0 0 .18rem var(--accent-500) inset, 0 0 0 .18rem var(--accent-500);
+      --radius: 1.4rem;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, .18);
+      --shadow-pop: 0 12px 40px rgba(57, 197, 167, .35);
+      --ring: 0 0 0 .18rem var(--accent-500) inset, 0 0 0 .18rem var(--accent-500);
 
       /* Colors (dark) */
-      --bg-950:#0f1115;
-      --bg-900:#14161b;
-      --bg-800:#1b1e25;
-      --text-100:#e5e7eb;
-      --text-300:#c7ccd6;
-      --muted-500:#9aa3b2;
-      --border-700:#262b35;
-      --accent-500:#39c5a7;
-      --accent-600:#2da891;
-      --accent-700:#238772;
+      --bg-950: #0f1115;
+      --bg-900: #14161b;
+      --bg-800: #1b1e25;
+      --text-100: #e5e7eb;
+      --text-300: #c7ccd6;
+      --muted-500: #9aa3b2;
+      --border-700: #262b35;
+      --accent-500: #39c5a7;
+      --accent-600: #2da891;
+      --accent-700: #238772;
 
-      --card-bg:color-mix(in oklab, var(--bg-800) 80%, transparent);
+      --card-bg: color-mix(in oklab, var(--bg-800) 80%, transparent);
       --glass: blur(12px) saturate(140%);
 
-      --container:clamp(320px, 90vw, 1120px);
+      --container: clamp(320px, 90vw, 1120px);
       --font: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 
       /* Type scale */
@@ -55,141 +84,517 @@
     }
 
     /* Light theme overrides */
-    html[data-theme="light"]{
-      --bg-950:#f6f7fb;
-      --bg-900:#ffffff;
-      --bg-800:#ffffff;
-      --text-100:#0f172a;
-      --text-300:#172135;
-      --muted-500:#5b6475;
-      --border-700:#e6e9f0;
-      --accent-500:#39c5a7;
-      --accent-600:#2da891;
-      --accent-700:#238772;
-      --card-bg:#ffffffcc;
+    html[data-theme="light"] {
+      --bg-950: #f6f7fb;
+      --bg-900: #ffffff;
+      --bg-800: #ffffff;
+      --text-100: #0f172a;
+      --text-300: #172135;
+      --muted-500: #5b6475;
+      --border-700: #e6e9f0;
+      --accent-500: #39c5a7;
+      --accent-600: #2da891;
+      --accent-700: #238772;
+      --card-bg: #ffffffcc;
       --glass: blur(10px) saturate(140%);
     }
 
-    :root{color-scheme:dark light}
-
-    body{
-      font-family:var(--font);
-      color:var(--text-100);
-      background:
-        radial-gradient(60rem 60rem at 10% -10%, rgba(57,197,167,.18), transparent 50%),
-        radial-gradient(60rem 60rem at 110% 10%, rgba(57,197,167,.09), transparent 50%),
-        var(--bg-950);
-      line-height:1.6;
+    :root {
+      color-scheme: dark light
     }
 
-    .container{width:var(--container); margin-inline:auto; padding-inline:clamp(1rem,2vw,1.6rem)}
+    body {
+      font-family: var(--font);
+      color: var(--text-100);
+      background:
+        radial-gradient(60rem 60rem at 10% -10%, rgba(57, 197, 167, .18), transparent 50%),
+        radial-gradient(60rem 60rem at 110% 10%, rgba(57, 197, 167, .09), transparent 50%),
+        var(--bg-950);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 2vw, 1.6rem)
+    }
 
     /* =========================
        HEADER / NAV
        ========================= */
-    .header{position:sticky;top:0;z-index:50;backdrop-filter:var(--glass); background:color-mix(in oklab, var(--bg-900) 75%, transparent); border-bottom:1px solid var(--border-700)}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.9rem 0}
-    .brand{display:flex; align-items:center; gap:.8rem; font-weight:800; letter-spacing:.2px; color:var(--accent-500); font-size:var(--step-2)}
-    .brand .dot{width:.7rem; height:.7rem; border-radius:999px; background:var(--accent-500); box-shadow:0 0 0 .3rem color-mix(in oklab, var(--accent-500) 20%, transparent)}
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: var(--glass);
+      background: color-mix(in oklab, var(--bg-900) 75%, transparent);
+      border-bottom: 1px solid var(--border-700)
+    }
 
-    .nav-links{display:flex; gap:1.2rem; align-items:center}
-    .nav-links a{padding:.6rem 1rem; border-radius:.8rem; color:var(--text-300); font-weight:500; border:1px solid transparent}
-    .nav-links a:is(:hover,.active){color:var(--text-100); border-color:var(--border-700); background:color-mix(in oklab, var(--bg-800) 76%, transparent)}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 0
+    }
 
-    .actions{display:flex; gap:.6rem; align-items:center}
-    .icon-btn{display:grid; place-items:center; width:2.6rem;height:2.6rem; border-radius:.8rem; border:1px solid var(--border-700); background:color-mix(in oklab, var(--bg-800) 76%, transparent); color:var(--text-100); box-shadow:var(--shadow-soft)}
-    .icon-btn:hover{box-shadow:var(--shadow-pop); transform:translateY(-2px)}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: var(--accent-500);
+      font-size: var(--step-2)
+    }
 
-    .menu{display:none}
+    .brand .dot {
+      width: .7rem;
+      height: .7rem;
+      border-radius: 999px;
+      background: var(--accent-500);
+      box-shadow: 0 0 0 .3rem color-mix(in oklab, var(--accent-500) 20%, transparent)
+    }
 
-    @media (max-width: 860px){
-      .menu{display:block}
-      .nav-links{position:fixed; inset-inline:1rem; top:4.2rem; display:grid; gap:.4rem; background:var(--card-bg); backdrop-filter:var(--glass); padding:.6rem; border-radius:1rem; border:1px solid var(--border-700); transform-origin:top; scale:.98; opacity:0; pointer-events:none; transition:.2s}
-      .nav-links.open{scale:1; opacity:1; pointer-events:auto}
-      .nav-links a{padding:.85rem 1.1rem}
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center
+    }
+
+    .nav-links a {
+      padding: .6rem 1rem;
+      border-radius: .8rem;
+      color: var(--text-300);
+      font-weight: 500;
+      border: 1px solid transparent
+    }
+
+    .nav-links a:is(:hover, .active) {
+      color: var(--text-100);
+      border-color: var(--border-700);
+      background: color-mix(in oklab, var(--bg-800) 76%, transparent)
+    }
+
+    .actions {
+      display: flex;
+      gap: .6rem;
+      align-items: center
+    }
+
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: .8rem;
+      border: 1px solid var(--border-700);
+      background: color-mix(in oklab, var(--bg-800) 76%, transparent);
+      color: var(--text-100);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .icon-btn:hover {
+      box-shadow: var(--shadow-pop);
+      transform: translateY(-2px)
+    }
+
+    .menu {
+      display: none
+    }
+
+    @media (max-width: 860px) {
+      .menu {
+        display: block
+      }
+
+      .nav-links {
+        position: fixed;
+        inset-inline: 1rem;
+        top: 4.2rem;
+        display: grid;
+        gap: .4rem;
+        background: var(--card-bg);
+        backdrop-filter: var(--glass);
+        padding: .6rem;
+        border-radius: 1rem;
+        border: 1px solid var(--border-700);
+        transform-origin: top;
+        scale: .98;
+        opacity: 0;
+        pointer-events: none;
+        transition: .2s
+      }
+
+      .nav-links.open {
+        scale: 1;
+        opacity: 1;
+        pointer-events: auto
+      }
+
+      .nav-links a {
+        padding: .85rem 1.1rem
+      }
     }
 
     /* =========================
        HERO
        ========================= */
-    .hero{display:grid; align-items:center; grid-template-columns:1.1fr .9fr; gap:2.4rem; padding-block:clamp(3rem, 6vw, 7rem)}
-    .eyebrow{display:inline-flex; align-items:center; gap:.6rem; font-size:var(--step--1); color:var(--muted-500); padding:.35rem .6rem; border:1px dashed var(--border-700); border-radius:999px}
-    .title{font-weight:800; font-size:var(--step-5); line-height:1.05; letter-spacing:-.02em; margin-top:1rem}
-    .subtitle{margin-top:.9rem; font-size:var(--step-1); color:var(--muted-500)}
-    .cta{display:flex; gap:.8rem; align-items:center; margin-top:1.4rem; flex-wrap:wrap}
+    .hero {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 2.4rem;
+      padding-block: clamp(3rem, 6vw, 7rem)
+    }
 
-    .btn{--b:1px; --pad-inline:1.1rem; display:inline-flex; align-items:center; gap:.6rem; padding:.9rem var(--pad-inline); border-radius:999px; border:var(--b) solid var(--border-700); background:linear-gradient(180deg, color-mix(in oklab, var(--bg-800) 80%, transparent), color-mix(in oklab, var(--bg-900) 90%, transparent)); color:var(--text-100); font-weight:600; box-shadow:var(--shadow-soft); transition:transform .15s ease, box-shadow .15s ease}
-    .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-pop)}
-    .btn.primary{--b:0; background:linear-gradient(180deg, var(--accent-500), var(--accent-600)); color:white}
-    .btn.ghost{background:transparent}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: var(--step--1);
+      color: var(--muted-500);
+      padding: .35rem .6rem;
+      border: 1px dashed var(--border-700);
+      border-radius: 999px
+    }
 
-    .hero-card{align-self:stretch; background:var(--card-bg); border:1px solid var(--border-700); border-radius:calc(var(--radius) + .4rem); padding:1.2rem; backdrop-filter:var(--glass); box-shadow:var(--shadow-soft)}
-    .avatar{aspect-ratio:1/1; width:min(280px, 70%); border-radius:50%; margin:1rem auto; background:linear-gradient(120deg, color-mix(in oklab, var(--accent-500) 20%, transparent), transparent 60%); box-shadow:0 0 0 .25rem color-mix(in oklab, var(--accent-500) 30%, transparent)}
-    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem}
-    .stat{border:1px solid var(--border-700); border-radius:.9rem; padding:.9rem; text-align:center; background:color-mix(in oklab, var(--bg-800) 70%, transparent)}
-    .stat .k{font-weight:800; font-size:var(--step-3)}
-    .stat .label{color:var(--muted-500); font-size:var(--step--1)}
+    .title {
+      font-weight: 800;
+      font-size: var(--step-5);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-top: 1rem
+    }
 
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr;}
-      .hero-card{order:-1}
+    .subtitle {
+      margin-top: .9rem;
+      font-size: var(--step-1);
+      color: var(--muted-500)
+    }
+
+    .cta {
+      display: flex;
+      gap: .8rem;
+      align-items: center;
+      margin-top: 1.4rem;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      --b: 1px;
+      --pad-inline: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .9rem var(--pad-inline);
+      border-radius: 999px;
+      border: var(--b) solid var(--border-700);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--bg-800) 80%, transparent), color-mix(in oklab, var(--bg-900) 90%, transparent));
+      color: var(--text-100);
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+      transition: transform .15s ease, box-shadow .15s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-pop)
+    }
+
+    .btn.primary {
+      --b: 0;
+      background: linear-gradient(180deg, var(--accent-500), var(--accent-600));
+      color: white
+    }
+
+    .btn.ghost {
+      background: transparent
+    }
+
+    .hero-card {
+      align-self: stretch;
+      background: var(--card-bg);
+      border: 1px solid var(--border-700);
+      border-radius: calc(var(--radius) + .4rem);
+      padding: 1.2rem;
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .avatar {
+      aspect-ratio: 1/1;
+      width: min(280px, 70%);
+      border-radius: 50%;
+      margin: 1rem auto;
+      background: linear-gradient(120deg, color-mix(in oklab, var(--accent-500) 20%, transparent), transparent 60%);
+      box-shadow: 0 0 0 .25rem color-mix(in oklab, var(--accent-500) 30%, transparent)
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem
+    }
+
+    .stat {
+      border: 1px solid var(--border-700);
+      border-radius: .9rem;
+      padding: .9rem;
+      text-align: center;
+      background: color-mix(in oklab, var(--bg-800) 70%, transparent)
+    }
+
+    .stat .k {
+      font-weight: 800;
+      font-size: var(--step-3)
+    }
+
+    .stat .label {
+      color: var(--muted-500);
+      font-size: var(--step--1)
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1
+      }
     }
 
     /* =========================
        SECTIONS
        ========================= */
-    section{padding-block:clamp(3rem,6vw,6rem); border-top:1px solid var(--border-700)}
-    .section-title{font-size:var(--step-3); font-weight:800; text-align:center; margin-bottom:1.6rem}
-    .section-sub{color:var(--muted-500); text-align:center; font-size:var(--step-0); max-width:60ch; margin-inline:auto}
+    section {
+      padding-block: clamp(3rem, 6vw, 6rem);
+      border-top: 1px solid var(--border-700)
+    }
+
+    .section-title {
+      font-size: var(--step-3);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1.6rem
+    }
+
+    .section-sub {
+      color: var(--muted-500);
+      text-align: center;
+      font-size: var(--step-0);
+      max-width: 60ch;
+      margin-inline: auto
+    }
 
     /* About */
-    .about{display:grid; grid-template-columns:.95fr 1.05fr; gap:1.8rem}
-    .about .card{background:var(--card-bg); border:1px solid var(--border-700); border-radius:var(--radius); padding:1.2rem; backdrop-filter:var(--glass); box-shadow:var(--shadow-soft)}
-    .about ul{display:grid; gap:.8rem; list-style:none; margin-top:.8rem}
-    .about li{display:flex; align-items:start; gap:.7rem}
-    .about li .tick{margin-top:.15rem; width:1rem; height:1rem; border-radius:.3rem; background:linear-gradient(180deg, var(--accent-500), var(--accent-700))}
+    .about {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 1.8rem
+    }
 
-    @media (max-width: 980px){.about{grid-template-columns:1fr}}
+    .about .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-700);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .about ul {
+      display: grid;
+      gap: .8rem;
+      list-style: none;
+      margin-top: .8rem
+    }
+
+    .about li {
+      display: flex;
+      align-items: start;
+      gap: .7rem
+    }
+
+    .about li .tick {
+      margin-top: .15rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: .3rem;
+      background: linear-gradient(180deg, var(--accent-500), var(--accent-700))
+    }
+
+    @media (max-width: 980px) {
+      .about {
+        grid-template-columns: 1fr
+      }
+    }
 
     /* Portfolio */
-    .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem}
-    @media (max-width: 1100px){.grid{grid-template-columns:repeat(2, minmax(0,1fr))}}
-    @media (max-width: 680px){.grid{grid-template-columns:1fr}}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem
+    }
 
-    .card{background:var(--card-bg); border:1px solid var(--border-700); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; backdrop-filter:var(--glass); box-shadow:var(--shadow-soft)}
-    .thumb{aspect-ratio:16/10; object-fit:cover}
-    .card-body{padding:1rem}
-    .card h3{font-size:var(--step-1)}
-    .card p{color:var(--muted-500); font-size:var(--step-0); margin-top:.4rem}
-    .card .tags{display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.6rem}
-    .tag{font-size:.75rem; padding:.35rem .55rem; border-radius:.6rem; border:1px solid var(--border-700); color:var(--muted-500)}
-    .card .row{margin-top:.9rem; display:flex; gap:.6rem}
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (max-width: 680px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-700);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .thumb {
+      aspect-ratio: 16/10;
+      object-fit: cover
+    }
+
+    .card-body {
+      padding: 1rem
+    }
+
+    .card h3 {
+      font-size: var(--step-1)
+    }
+
+    .card p {
+      color: var(--muted-500);
+      font-size: var(--step-0);
+      margin-top: .4rem
+    }
+
+    .card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .6rem
+    }
+
+    .tag {
+      font-size: .75rem;
+      padding: .35rem .55rem;
+      border-radius: .6rem;
+      border: 1px solid var(--border-700);
+      color: var(--muted-500)
+    }
+
+    .card .row {
+      margin-top: .9rem;
+      display: flex;
+      gap: .6rem
+    }
 
     /* Contact */
-    .contact{display:grid; grid-template-columns:.9fr 1.1fr; gap:1.2rem}
-    .contact .panel{background:var(--card-bg); border:1px solid var(--border-700); border-radius:var(--radius); padding:1.2rem; backdrop-filter:var(--glass); box-shadow:var(--shadow-soft)}
-    .field{display:grid; gap:.4rem}
-    input, textarea{background:color-mix(in oklab, var(--bg-800) 65%, transparent); border:1px solid var(--border-700); color:var(--text-100); border-radius:.8rem; padding:.9rem 1rem}
-    textarea{min-height:10rem; resize:vertical}
-    input:focus, textarea:focus{outline:none; box-shadow:var(--ring); border-color:transparent}
+    .contact {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 1.2rem
+    }
 
-    @media (max-width: 980px){.contact{grid-template-columns:1fr}}
+    .contact .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border-700);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .field {
+      display: grid;
+      gap: .4rem
+    }
+
+    input,
+    textarea {
+      background: color-mix(in oklab, var(--bg-800) 65%, transparent);
+      border: 1px solid var(--border-700);
+      color: var(--text-100);
+      border-radius: .8rem;
+      padding: .9rem 1rem
+    }
+
+    textarea {
+      min-height: 10rem;
+      resize: vertical
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: var(--ring);
+      border-color: transparent
+    }
+
+    @media (max-width: 980px) {
+      .contact {
+        grid-template-columns: 1fr
+      }
+    }
 
     /* Footer */
-    footer{padding-block:2rem; color:var(--muted-500)}
+    footer {
+      padding-block: 2rem;
+      color: var(--muted-500)
+    }
 
     /* Utilities */
-    .muted{color:var(--muted-500)}
-    .stack{display:grid; gap:.9rem}
-    .row{display:flex; gap:.8rem; align-items:center; flex-wrap:wrap}
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    .muted {
+      color: var(--muted-500)
+    }
+
+    .stack {
+      display: grid;
+      gap: .9rem
+    }
+
+    .row {
+      display: flex;
+      gap: .8rem;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0
+    }
 
     /* Reduced motion */
-    @media (prefers-reduced-motion:reduce){
-      *{transition:none!important; animation:none!important}
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        transition: none !important;
+        animation: none !important
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- ========================= HEADER ========================= -->
   <header class="header">
@@ -209,10 +614,15 @@
       <div class="actions">
         <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
           <!-- Sun / Moon (simple) -->
-          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.8-1.79 1.41 1.41-1.79 1.8-1.42-1.42zM12 4V1h-0v3h0zm0 19v-3h0v3h0zM4 13H1v-0h3v0zm19 0h-3v0h3v0zM6.76 19.16l-1.42 1.42-1.79-1.8 1.41-1.41 1.8 1.79zM19.16 17.24l1.42-1.42 1.79 1.8-1.41 1.41-1.8-1.79zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.8-1.79 1.41 1.41-1.79 1.8-1.42-1.42zM12 4V1h-0v3h0zm0 19v-3h0v3h0zM4 13H1v-0h3v0zm19 0h-3v0h3v0zM6.76 19.16l-1.42 1.42-1.79-1.8 1.41-1.41 1.8 1.79zM19.16 17.24l1.42-1.42 1.79 1.8-1.41 1.41-1.8-1.79zM12 7a5 5 0 100 10 5 5 0 000-10z" />
+          </svg>
         </button>
         <button class="icon-btn menu" id="menuToggle" aria-label="Open menu" title="Menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+          </svg>
         </button>
       </div>
     </div>
@@ -222,8 +632,10 @@
   <main id="home" class="container hero">
     <section class="stack">
       <span class="eyebrow">✨ Building clean, fast, modern web experiences</span>
-      <h1 class="title">Hey, I’m <span style="color:var(--accent-500)">Your&nbsp;Name</span> — a frontend engineer & product designer</h1>
-      <p class="subtitle">I craft delightful interfaces with performance and accessibility baked in. Here’s a selection of work and things I’m experimenting with right now.</p>
+      <h1 class="title">Hey, I’m <span style="color:var(--accent-500)">Your&nbsp;Name</span> — a frontend engineer &
+        product designer</h1>
+      <p class="subtitle">I craft delightful interfaces with performance and accessibility baked in. Here’s a selection
+        of work and things I’m experimenting with right now.</p>
       <div class="cta">
         <a class="btn primary" href="#work">View projects</a>
         <a class="btn ghost" href="#contact">Contact me</a>
@@ -231,11 +643,22 @@
     </section>
 
     <aside class="hero-card stack" aria-label="Profile summary">
-      <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=720&auto=format&fit=crop" alt="Avatar" />
+      <img class="avatar"
+        src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=720&auto=format&fit=crop"
+        alt="Avatar" />
       <div class="stats">
-        <div class="stat"><div class="k">24+</div><div class="label">Projects</div></div>
-        <div class="stat"><div class="k">8yr</div><div class="label">Experience</div></div>
-        <div class="stat"><div class="k">12</div><div class="label">Awards</div></div>
+        <div class="stat">
+          <div class="k">24+</div>
+          <div class="label">Projects</div>
+        </div>
+        <div class="stat">
+          <div class="k">8yr</div>
+          <div class="label">Experience</div>
+        </div>
+        <div class="stat">
+          <div class="k">12</div>
+          <div class="label">Awards</div>
+        </div>
       </div>
     </aside>
   </main>
@@ -243,7 +666,8 @@
   <!-- ========================= ABOUT ========================= -->
   <section id="about" class="container">
     <h2 class="section-title">About</h2>
-    <p class="section-sub">I design and build polished web apps with a focus on accessibility, performance, and maintainable systems.</p>
+    <p class="section-sub">I design and build polished web apps with a focus on accessibility, performance, and
+      maintainable systems.</p>
 
     <div class="about" style="margin-top:1.2rem">
       <div class="card stack">
@@ -273,7 +697,9 @@
     <div class="grid" style="margin-top:1.2rem">
       <!-- card 1 -->
       <article class="card">
-        <img class="thumb" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+        <img class="thumb"
+          src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop"
+          alt="Project screenshot" />
         <div class="card-body">
           <h3>Realtime Dashboard</h3>
           <p>Data‑dense control surface with streaming charts and keyboard nav.</p>
@@ -289,7 +715,9 @@
 
       <!-- card 2 -->
       <article class="card">
-        <img class="thumb" src="https://images.unsplash.com/photo-1531496740154-6e61f78d9a37?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+        <img class="thumb"
+          src="https://images.unsplash.com/photo-1531496740154-6e61f78d9a37?q=80&w=1200&auto=format&fit=crop"
+          alt="Project screenshot" />
         <div class="card-body">
           <h3>Design System</h3>
           <p>Token‑first system with theming, modes, and docs.</p>
@@ -305,7 +733,9 @@
 
       <!-- card 3 -->
       <article class="card">
-        <img class="thumb" src="https://images.unsplash.com/photo-1551281044-8e8d2aa21ecb?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+        <img class="thumb"
+          src="https://images.unsplash.com/photo-1551281044-8e8d2aa21ecb?q=80&w=1200&auto=format&fit=crop"
+          alt="Project screenshot" />
         <div class="card-body">
           <h3>Commerce UX</h3>
           <p>Checkout flow refactor with state machines and perf wins.</p>
@@ -373,7 +803,7 @@
     const html = document.documentElement;
     const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if(stored){ html.setAttribute('data-theme', stored); }
+    if (stored) { html.setAttribute('data-theme', stored); }
     else { html.setAttribute('data-theme', prefersDark ? 'dark' : 'light'); }
 
     const themeToggle = document.getElementById('themeToggle');
@@ -400,4 +830,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
