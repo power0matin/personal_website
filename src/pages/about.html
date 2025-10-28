@@ -4,13 +4,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="About Matin Shahabadi — Web Developer & Designer." />
-  <title>Matin Shahabadi | About</title>
+  <meta name="description" content="Personal website of Matin Shahabadi: portfolio, projects, contact.">
+  <title>Matin Shahabadi | Web Developer Portfolio</title>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <!-- Open Graph پایه -->
+  <meta property="og:title" content="Matin Shahabadi">
+  <meta property="og:type" content="website">
+
+  <!-- رنگ نوار مرورگر در موبایل -->
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- بهبود سرعت بارگذاری CSS -->
+  <link rel="preload" as="style" href="../assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </noscript>
 </head>
+<script>
+  /* THEME BOOTSTRAP */
+  try {
+    const t = localStorage.getItem('theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) { }
+</script>
 
 <body>
   <header>

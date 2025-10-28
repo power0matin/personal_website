@@ -4,13 +4,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contact Matin Shahabadi — Web Developer & Designer." />
-  <title>Matin Shahabadi | Contact</title>
+  <meta name="description" content="Personal website of Matin Shahabadi: portfolio, projects, contact.">
+  <title>Matin Shahabadi | Web Developer Portfolio</title>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <!-- Open Graph پایه -->
+  <meta property="og:title" content="Matin Shahabadi">
+  <meta property="og:type" content="website">
+
+  <!-- رنگ نوار مرورگر در موبایل -->
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- بهبود سرعت بارگذاری CSS -->
+  <link rel="preload" as="style" href="../assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </noscript>
 </head>
+<script>
+  /* THEME BOOTSTRAP */
+  try {
+    const t = localStorage.getItem('theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) { }
+</script>
 
 <body>
   <header>
@@ -46,48 +70,85 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="contact">
-      <h2>Contact Me</h2>
-      <p class="section-sub">Got a brief, idea, or role? Let’s talk.</p>
+<main class="container">
+  <section class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Me</h2>
+    <p class="section-sub">Got a brief, idea, or role? Let’s talk.</p>
 
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>Get in Touch</h3>
-          <p><i class="fa-solid fa-envelope"></i> matinshahabadi3@gmail.com</p>
-          <div class="social-icons">
-            <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn" target="_blank" rel="noopener"><i
-                class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/power0matin/" aria-label="GitHub" target="_blank" rel="noopener"><i
-                class="fa-brands fa-github"></i></a>
-            <a href="https://x.com/matin0op" aria-label="Twitter/X" target="_blank" rel="noopener"><i
-                class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i
-                class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
+    <div class="contact-content">
+      <!-- Info card -->
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
 
-        <div class="contact-form">
-          <h3>Send a Message</h3>
-          <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
-            <div class="field">
-              <label for="name">Your Name</label>
-              <input id="name" name="name" type="text" placeholder="Your Name" required />
-            </div>
-            <div class="field">
-              <label for="email">Your Email</label>
-              <input id="email" name="email" type="email" placeholder="Your Email" required />
-            </div>
-            <div class="field">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-          </form>
+        <p>
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <a href="mailto:matinshahabadi3@gmail.com">matinshahabadi3@gmail.com</a>
+        </p>
+
+        <div class="social-icons" aria-label="Social links">
+          <a href="https://linkedin.com/in/matin-shahabadi" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/power0matin/" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://x.com/matin0op" target="_blank" rel="noopener" aria-label="Twitter/X">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/powermatin" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
-    </section>
-  </main>
+
+      <!-- Form card -->
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+
+        <form id="contact-form" action="#" method="post" onsubmit="event.preventDefault(); alert('Message sent!');" novalidate>
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="email">Your Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              inputmode="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your Message"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
 
   <footer>
     <div class="footer-social-links">
