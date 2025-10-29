@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- Primary Meta -->
-  <title>Matin Shahabadi | Web Developer Portfolio</title>
+  <title>About • Matin Shahabadi</title>
   <meta name="description"
     content="Personal website of Matin Shahabadi — Web & Software Developer specializing in Python, C#, Lua, HTML5, CSS3. Explore my projects, portfolio, and contact details." />
   <meta name="author" content="Matin Shahabadi" />
@@ -82,16 +82,6 @@
   </script>
 </head>
 
-<script>
-  /* THEME BOOTSTRAP */
-  try {
-    const t = localStorage.getItem('theme');
-    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-  } catch (e) { }
-</script>
-
 <body>
   <header>
     <div class="container bar">
@@ -102,21 +92,18 @@
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <!-- theme-toggle.html -->
       <div class="theme-toggle">
-        <button id="themeButton" type="button" aria-label="Toggle theme" aria-live="polite" aria-pressed="false">
-          <span class="toggle-track" aria-hidden="true"></span>
-          <span class="toggle-thumb" aria-hidden="true">
-            <!-- Sun -->
-            <svg class="thumb-icon sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"></circle>
+        <button id="themeButton" type="button" aria-label="Toggle theme">
+          <span class="toggle-track"></span>
+          <span class="toggle-thumb">
+            <svg class="thumb-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" />
               <path
                 d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.54 6.46-1.42-1.42M7.88 7.88 6.46 6.46m10.02 0-1.42 1.42M7.88 16.12 6.46 17.54" />
             </svg>
-            <!-- Moon -->
-            <svg class="thumb-icon moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="thumb-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           </span>
@@ -129,47 +116,72 @@
   <main class="container">
     <section class="about">
       <h2>About Me</h2>
-      <p class="section-sub">A developer focused on performance, accessibility, and design systems.</p>
+      <p class="section-sub">Web & Software Developer focused on performance, accessibility, and clean UI/UX design.</p>
 
       <div class="about-content">
         <div class="about-img">
-          <img src="../assets/images/main.jpg" alt="Profile picture" loading="lazy" />
+          <img src="../assets/images/main.jpg" alt="Portrait of Matin Shahabadi" loading="lazy" />
         </div>
         <div class="about-text">
-          <h3>Matin Shahabadi</h3>
-          <p>I enjoy creating responsive and interactive websites that provide great user experiences.</p>
+          <h3>Matin Shahabadi <span class="meta">power0matin · he/him</span></h3>
+          <p>I'm a developer who loves crafting interactive web apps and backends with modern technologies. Currently
+            focusing on <strong>Django</strong> and scalable architectures while exploring innovative web solutions.</p>
 
           <h4>Skills</h4>
           <ul>
-            <li>HTML5, CSS3, JavaScript</li>
-            <li>React, Flask, Python</li>
+            <li>Python, Lua, C#</li>
+            <li>Django, HTML5, CSS3</li>
             <li>Responsive Web Design</li>
             <li>UI/UX Design Principles</li>
           </ul>
 
+          <h4>Achievements</h4>
+          <ul>
+            <li>🏅 Quickdraw</li>
+            <li>🐟 Pull Shark</li>
+            <li>🚀 YOLO</li>
+          </ul>
+
           <h4>Education</h4>
-          <p>B.Sc. in Computer Science, [Your University], [Year]</p>
+          <p class="meta">B.Sc. in Computer Science, Iran · 2025</p>
         </div>
       </div>
     </section>
+    <!--
+    <section class="projects">
+      <h2>Featured Projects</h2>
+      <div class="portfolio-grid">
+        <article class="portfolio-item">
+          <img src="../assets/images/discord.jpg" alt="Discord Quest Auto Completer" />
+          <h3>Discord Quest Auto Completer</h3>
+          <p>Automates Discord quests using JavaScript spoofing in the desktop client.</p>
+        </article>
+        <article class="portfolio-item">
+          <img src="../assets/images/kuma.jpg" alt="Kuma Monitoring Reporter" />
+          <h3>Kuma Monitoring Reporter</h3>
+          <p>Python-based Uptime Kuma → Telegram reporting automation tool.</p>
+        </article>
+        <article class="portfolio-item">
+          <img src="../assets/images/iranfw.jpg" alt="Iran Firewall Manager" />
+          <h3>Iran Firewall Manager</h3>
+          <p>Bash-based firewall automation tool for secure server setups in Iran.</p>
+        </article>
+      </div>
+    </section>
+    -->
   </main>
 
   <footer>
     <div class="footer-social-links">
-      <a href="https://linkedin.com/in/matin-shahabadi" aria-label="LinkedIn" target="_blank" rel="noopener"><i
-          class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/power0matin/" aria-label="GitHub" target="_blank" rel="noopener"><i
-          class="fa-brands fa-github"></i></a>
-      <a href="https://x.com/matin0op" aria-label="Twitter/X" target="_blank" rel="noopener"><i
-          class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i
-          class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/power0matin" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://instagram.com/powermatin" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/powermatin" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+      <a href="https://www.twitch.tv/powermatin" aria-label="Twitch"><i class="fa-brands fa-twitch"></i></a>
     </div>
-    <p>&copy; 2025 Matin Shahabadi. All rights reserved. | <a href="contact.html">Contact</a></p>
+    <p>&copy; 2025 Matin Shahabadi · Crafted with ❤️ from Iran</p>
   </footer>
 
   <script src="../js/main.js" defer></script>
-  <script src="../js/theme-sync.js" defer></script>
 </body>
 
 </html>
