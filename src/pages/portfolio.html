@@ -8,9 +8,11 @@
 
   <!-- Primary Meta -->
   <title>Matin Shahabadi | Web Developer Portfolio</title>
-  <meta name="description" content="Personal website of Matin Shahabadi — Web & Software Developer specializing in Python, C#, Lua, HTML5, CSS3. Explore my projects, portfolio, and contact details." />
+  <meta name="description"
+    content="Personal website of Matin Shahabadi — Web & Software Developer specializing in Python, C#, Lua, HTML5, CSS3. Explore my projects, portfolio, and contact details." />
   <meta name="author" content="Matin Shahabadi" />
-  <meta name="keywords" content="Matin Shahabadi, Web Developer, Python, C#, Lua, Portfolio, Frontend, Backend, UI/UX" />
+  <meta name="keywords"
+    content="Matin Shahabadi, Web Developer, Python, C#, Lua, Portfolio, Frontend, Backend, UI/UX" />
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical -->
@@ -31,15 +33,21 @@
 
   <!-- Main Stylesheet (async load) -->
   <link rel="preload" as="style" href="../../src/assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../../src/assets/css/main.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../../src/assets/css/main.css">
+  </noscript>
 
   <!-- Font Awesome -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </noscript>
 
   <!-- Open Graph (Social Preview) -->
   <meta property="og:title" content="Matin Shahabadi | Web Developer Portfolio" />
-  <meta property="og:description" content="Hi, I'm Matin Shahabadi — Web & Software Developer. Explore my portfolio, skills, and contact information." />
+  <meta property="og:description"
+    content="Hi, I'm Matin Shahabadi — Web & Software Developer. Explore my portfolio, skills, and contact information." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://power0matin.github.io/personal_website/" />
   <meta property="og:image" content="https://power0matin.github.io/personal_website/src/assets/images/main.jpg" />
@@ -49,7 +57,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Matin Shahabadi | Web Developer Portfolio" />
-  <meta name="twitter:description" content="Web & Software Developer specializing in Python, C#, and modern web technologies." />
+  <meta name="twitter:description"
+    content="Web & Software Developer specializing in Python, C#, and modern web technologies." />
   <meta name="twitter:image" content="https://power0matin.github.io/personal_website/src/assets/images/main.jpg" />
 
   <!-- Structured Data (SEO / Google Rich Results) -->
@@ -124,7 +133,19 @@
 
       <div class="portfolio-grid">
         <article class="portfolio-item">
-          <img src="../assets/images/Iran Provinces.jpg" alt="Iran Provinces interactive map" loading="lazy" />
+          <img id="iran-shot" alt="Preview of Iran-Provinces project" loading="lazy"
+            style="aspect-ratio:16/10;object-fit:cover;border-radius:12px;" referrerpolicy="no-referrer">
+
+          <script>
+            (function () {
+              const primary = "https://image.thum.io/get/width/900/crop/900x560/noanimate/https://power0matin.github.io/iran-provinces/?v=" + Date.now();
+              const fallback = "https://api.microlink.io/?url=https://power0matin.github.io/iran-provinces/&screenshot=true&meta=false&embed=screenshot.url";
+              const img = document.getElementById('iran-shot');
+              img.onerror = () => { img.onerror = null; img.src = fallback; };
+              img.src = primary;
+            })();
+          </script>
+
           <h3>Iran Provinces</h3>
           <p>Interactive map and detailed information about Iran’s provinces with a modern UI.</p>
           <div class="actions">
@@ -184,6 +205,7 @@
   </footer>
 
   <script src="../js/main.js" defer></script>
+  <script src="../js/theme-sync.js" defer></script>
 </body>
 
 </html>
