@@ -2,30 +2,77 @@
 <html lang="en">
 
 <head>
+  <!-- Charset & Viewport -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Personal website of Matin Shahabadi: portfolio, projects, contact.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- Primary Meta -->
   <title>Matin Shahabadi | Web Developer Portfolio</title>
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <!-- Open Graph پایه -->
-  <meta property="og:title" content="Matin Shahabadi">
-  <meta property="og:type" content="website">
-
-  <!-- رنگ نوار مرورگر در موبایل -->
-  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Personal website of Matin Shahabadi — Web & Software Developer specializing in Python, C#, Lua, HTML5, CSS3. Explore my projects, portfolio, and contact details." />
+  <meta name="author" content="Matin Shahabadi" />
+  <meta name="keywords" content="Matin Shahabadi, Web Developer, Python, C#, Lua, Portfolio, Frontend, Backend, UI/UX" />
+  <meta name="robots" content="index, follow" />
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://example.com/">
+  <link rel="canonical" href="https://power0matin.github.io/personal_website/" />
 
-  <!-- بهبود سرعت بارگذاری CSS -->
-  <link rel="preload" as="style" href="../assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="../assets/css/main.css">
-  </noscript>
+  <!-- Favicons & App Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0f172a" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+
+  <!-- Main Stylesheet (async load) -->
+  <link rel="preload" as="style" href="../../src/assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../../src/assets/css/main.css"></noscript>
+
+  <!-- Font Awesome -->
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+
+  <!-- Open Graph (Social Preview) -->
+  <meta property="og:title" content="Matin Shahabadi | Web Developer Portfolio" />
+  <meta property="og:description" content="Hi, I'm Matin Shahabadi — Web & Software Developer. Explore my portfolio, skills, and contact information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://power0matin.github.io/personal_website/" />
+  <meta property="og:image" content="https://power0matin.github.io/personal_website/src/assets/images/main.jpg" />
+  <meta property="og:image:alt" content="Profile picture of Matin Shahabadi" />
+  <meta property="og:site_name" content="Matin Shahabadi" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matin Shahabadi | Web Developer Portfolio" />
+  <meta name="twitter:description" content="Web & Software Developer specializing in Python, C#, and modern web technologies." />
+  <meta name="twitter:image" content="https://power0matin.github.io/personal_website/src/assets/images/main.jpg" />
+
+  <!-- Structured Data (SEO / Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "WebSite"],
+    "name": "Matin Shahabadi",
+    "url": "https://power0matin.github.io/personal_website/",
+    "image": "https://power0matin.github.io/personal_website/src/assets/images/main.jpg",
+    "jobTitle": "Web & Software Developer",
+    "description": "Web developer skilled in Python, C#, Lua, HTML5, CSS3, and UI/UX design.",
+    "sameAs": [
+      "https://github.com/power0matin",
+      "https://linkedin.com/in/matin-shahabadi",
+      "https://x.com/matin0op",
+      "https://instagram.com/powermatin"
+    ]
+  }
+  </script>
 </head>
+
+
 <script>
   /* THEME BOOTSTRAP */
   try {

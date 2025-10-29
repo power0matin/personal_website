@@ -142,12 +142,13 @@ body.modal-open {
 
 /* Light theme overrides via attribute (no JS required beyond setting data-theme) */
 html[data-theme="light"] {
-  --bg: #f6f7fb;
-  --surface: #fff;
-  --surface-2: #fff;
-  --text: #0f172a;
-  --muted: #5b6475;
-  --border: #e7ecf3;
+  /* Backgrounds */
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --text: #0b1220;
+  --muted: #606b85;
+  --border: #d0d8e5;
 }
 
 /* Small-screen type tuning (from responsive.css, merged) */
@@ -679,11 +680,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
+  display: flex;
   -webkit-backdrop-filter: blur(10px) saturate(160%);
   backdrop-filter: blur(10px) saturate(160%);
   background: color-mix(in oklab, var(--surface) 88%, transparent);
   /* slightly higher contrast on mobile */
   border-bottom: 1px solid var(--border);
+}
+
+html[data-theme="light"] header {
+  background: color-mix(in oklab, var(--surface) 92%, transparent);
+  border-bottom-color: var(--border);
+}
+
+html[data-theme="light"] nav {
+  background: color-mix(in oklab, var(--surface) 90%, var(--accent) 3%);
 }
 
 header .bar {
@@ -720,7 +731,7 @@ nav a {
   font-size: var(--step-0);
   font-weight: 600;
   letter-spacing: .3px;
-  color: color-mix(in oklab, var(--text) 75%, transparent);
+  color: color-mix(in oklab, var(--text) 88%, transparent);
   padding: .4rem .2rem;
   text-decoration: none;
   transition: color .25s ease, transform .2s ease;
@@ -1242,4 +1253,30 @@ nav a:is(:hover, .active)::after {
 
 body>footer:last-child {
   padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+}
+
+/* Card surfaces & inputs look defined on light */
+html[data-theme="light"] .portfolio-item,
+html[data-theme="light"] .contact-info,
+html[data-theme="light"] .contact-form {
+  background: color-mix(in oklab, var(--surface-2) 94%, transparent);
+  border-color: var(--border);
+}
+
+html[data-theme="light"] .contact-form input,
+html[data-theme="light"] .contact-form textarea {
+  background: color-mix(in oklab, var(--surface-2) 85%, transparent);
+  border-color: var(--border);
+}
+
+html[data-theme="light"] .lightbox__panel {
+  background: color-mix(in oklab, var(--surface) 98%, transparent);
+  border-color: var(--border);
+}
+
+/* Slightly stronger muted text in light */
+html[data-theme="light"] .section-sub,
+html[data-theme="light"] .lightbox__desc,
+html[data-theme="light"] .about-text .meta {
+  color: color-mix(in oklab, var(--muted) 92%, transparent);
 }
