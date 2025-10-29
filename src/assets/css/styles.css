@@ -44,6 +44,11 @@ body {
   padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 img,
 svg,
 video {
@@ -278,7 +283,8 @@ h2 {
 
 /* Page social icons: left */
 .social-icons {
-  justify-content: flex-start; /* was 'left' */
+  justify-content: flex-start;
+  /* was 'left' */
 }
 
 .social-icons a,
@@ -322,7 +328,7 @@ nav a,
   font-weight: 700;
   box-shadow: var(--shadow-1);
   transition: transform .15s, box-shadow .2s;
-  margin-top: 4%;
+  margin-top: .8rem;
 }
 
 .btn:hover {
@@ -343,7 +349,7 @@ nav a,
   display: grid;
   grid-template-columns: .95fr 1.05fr;
   gap: 2rem;
-  align-items: start;
+  align-items: start
 }
 
 .about-img img {
@@ -407,16 +413,16 @@ nav a,
 
 @media (max-width:1100px) {
   .about-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 
   .about .section-sub {
-    text-align: center;
+    text-align: center
   }
 
   .about-text {
     max-width: 70ch;
-    margin-inline: auto;
+    margin-inline: auto
   }
 }
 
@@ -507,10 +513,11 @@ nav a,
 /* === Contact Section (Final Polished Version) === */
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* equal columns */
+  grid-template-columns: 1fr 1fr;
   gap: clamp(1rem, 2vw, 1.4rem);
-  align-items: stretch;
+  align-items: stretch
 }
+
 
 /* unified card style for both sides */
 .contact-info,
@@ -521,7 +528,7 @@ nav a,
   padding: clamp(1rem, 2vw, 1.5rem);
   box-shadow: var(--shadow-1);
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 /* titles */
@@ -546,6 +553,7 @@ nav a,
   text-decoration: none;
   transition: color .2s ease;
 }
+
 .contact-info a[href^="mailto:"]:hover {
   color: var(--accent);
 }
@@ -561,7 +569,7 @@ nav a,
 .contact-form form {
   display: grid;
   gap: .9rem;
-  margin-top: auto;
+  margin-top: auto
 }
 
 .contact-form .field {
@@ -582,9 +590,7 @@ nav a,
   border: 1px solid var(--border);
   color: var(--text);
   border-radius: 12px;
-  padding: .9rem 1rem;
-  font-size: var(--step-0);
-  transition: border-color .15s ease, box-shadow .15s ease, background .2s ease;
+  padding: .9rem 1rem
 }
 
 .contact-form textarea {
@@ -607,6 +613,7 @@ nav a,
   box-shadow: var(--shadow-1);
   transition: transform .2s ease, box-shadow .25s ease;
 }
+
 .contact-form .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
@@ -617,13 +624,12 @@ nav a,
   .contact-content {
     grid-template-columns: 1fr;
   }
-
-  .contact-info,
-  .contact-form {
-    border-radius: var(--radius);
-  }
 }
 
+.contact-info,
+.contact-form {
+  border-radius: var(--radius);
+}
 
 /* Footer */
 footer {
@@ -632,12 +638,14 @@ footer {
   color: var(--muted);
   font-size: var(--step--1);
   text-align: center;
+  margin-bottom: 0;
 }
 
 /* Footer social icons: center */
 .footer-social-links {
-  justify-content: center; /* explicitly center in the footer */
-  padding-bottom: 1%;
+  justify-content: center;
+  /* explicitly center in the footer */
+  padding-bottom: .8rem;
 }
 
 .footer-social-links a {
@@ -757,11 +765,15 @@ nav a:is(:hover, .active)::after {
   nav {
     position: fixed;
     top: var(--header-h);
-    right: 0;
+    inset-inline-end: 0;
+    /* به جای right:0 از logical استفاده کن */
     bottom: 0;
     width: min(75%, 360px);
     max-width: 92vw;
-    transform: translateX(100%);
+    /* کمی بیشتر از 100% تا حتی 1px هم دیده نشود */
+    transform: translateX(calc(100% + 2px));
+    will-change: transform;
+
     background: color-mix(in oklab, var(--surface) 92%, transparent);
     -webkit-backdrop-filter: blur(10px) saturate(160%);
     backdrop-filter: blur(10px) saturate(160%);
@@ -772,18 +784,31 @@ nav a:is(:hover, .active)::after {
     gap: .4rem;
     padding: .8rem 1rem;
     z-index: 999;
+
+    /* ارتفاع درست + safe-area */
+    padding-top: calc(.8rem + env(safe-area-inset-top));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    border-radius: 0;
+    /* گردی لبه باعث هاله 1px می‌شد */
   }
 
-  nav.active {
-    transform: translateX(0);
-  }
-
-  /* Fallback: when body.menu-open exists, open drawer (from responsive.css) */
+  /* فقط وقتی باز است، داخل دید */
+  nav.active,
   body.menu-open nav {
+    /* fallback با کلاس بدنه */
     transform: translateX(0);
+  }
+
+  /* وقتی بسته است، هیچ بوردر/سایه‌ای نشان نده */
+  nav:not(.active) {
+    border-left: 0;
+    box-shadow: none;
   }
 
   nav a {
+    font-size: var(--step-1);
     padding: .85rem 1rem;
     border-radius: 10px;
     border-bottom: 0;
@@ -793,19 +818,8 @@ nav a:is(:hover, .active)::after {
     background: color-mix(in oklab, var(--surface-2) 80%, transparent);
     border: 1px solid var(--border);
   }
-
-  /* Safe-area comfy padding inside drawer */
-  nav {
-    padding-top: calc(.8rem + env(safe-area-inset-top));
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-    height: calc(100dvh - var(--header-h));
-    overflow-y: auto;
-  }
-
-  nav a {
-    font-size: var(--step-1);
-  }
 }
+
 
 /* =======================
    Theme Toggle (no markup change required)
@@ -1112,11 +1126,11 @@ nav a:is(:hover, .active)::after {
    ======================= */
 @media (max-width:980px) {
   .home {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 
   .home-img img {
-    width: min(380px, 82%);
+    width: min(380px, 82%)
   }
 
   .about-content,
@@ -1130,22 +1144,21 @@ nav a:is(:hover, .active)::after {
 }
 
 @media (max-width:1100px) {
-
-  /* Already handled above for about/contact/portfolio */
   .home-img {
-    order: -1;
+    order: -1
   }
 
+  /* عکس بالای متن روی موبایل/تبلت */
   .home-img img {
-    width: min(420px, 85%);
+    width: min(420px, 85%)
   }
 
   .home-content {
-    text-align: center;
+    text-align: center
   }
 
   .home .social-icons {
-    justify-content: center;
+    justify-content: center
   }
 }
 
@@ -1225,4 +1238,8 @@ nav a:is(:hover, .active)::after {
   .portfolio-item {
     break-inside: avoid;
   }
+}
+
+body>footer:last-child {
+  padding-bottom: max(env(safe-area-inset-bottom), 1rem);
 }
