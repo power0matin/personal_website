@@ -210,10 +210,13 @@ h2 {
 .home {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
-  /* merged: styles.css (1.1/.9) with responsive's 1/.9 on large */
   gap: clamp(1.4rem, 3vw, 2.4rem);
   align-items: center;
   min-height: 86svh;
+}
+
+.home-img picture {
+  display: block;
 }
 
 .home-img img {
@@ -221,9 +224,11 @@ h2 {
   aspect-ratio: 1/1;
   border-radius: 50%;
   margin-inline: auto;
-  box-shadow: 0 0 0 .28rem color-mix(in oklab, var(--accent) 28%, transparent), var(--shadow-1);
-  background: linear-gradient(120deg, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%);
+  box-shadow: 0 0 0 .12rem color-mix(in oklab, var(--accent) 22%, transparent), var(--shadow-1);
+  background: none;
+  /* فقط گرادیان را بردار تا روی صورت ننشیند */
   object-fit: cover;
+  border: 3px solid color-mix(in oklab, var(--accent) 45%, transparent);
 }
 
 .home-content p {
@@ -317,20 +322,24 @@ nav a,
 }
 
 .btn {
-  display: inline-flex;
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
   align-items: center;
   justify-content: center;
   gap: .6rem;
-  padding: 1rem 1.6rem;
+  padding: .95rem 1.2rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--accent) 75%, transparent);
+  font-weight: 700;
+  letter-spacing: .2px;
   background: linear-gradient(180deg, var(--accent), var(--accent-600));
   color: #fff;
-  font-weight: 700;
-  box-shadow: var(--shadow-1);
-  transition: transform .15s, box-shadow .2s;
-  margin-top: .8rem;
+  /* ✅ متن سفید، مطابق "Hire Me" */
+  border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-2);
+  transition: transform .12s, box-shadow .2s, opacity .2s;
 }
+
 
 .btn:hover {
   transform: translateY(-2px);
