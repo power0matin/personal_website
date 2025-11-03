@@ -141,8 +141,7 @@ body.modal-open {
 }
 
 /* Light theme overrides via attribute (no JS required beyond setting data-theme) */
-html[data-theme="light"] {
-  /* Backgrounds */
+html[data-mode="light"] {
   --bg: #f3f5f9;
   --surface: #ffffff;
   --surface-2: #f7f9fc;
@@ -292,11 +291,12 @@ h2 {
 .footer-social-links a,
 .btn,
 nav a,
-.lightbox__close {
-  /* Minimum 44x44 tap size across interactive controls */
+.lightbox__close,
+.menu-toggle {
   min-width: 44px;
   min-height: 44px;
 }
+
 
 .social-icons a {
   inline-size: 3.1rem;
@@ -688,12 +688,12 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-html[data-theme="light"] header {
+html[data-mode="light"] header {
   background: color-mix(in oklab, var(--surface) 92%, transparent);
   border-bottom-color: var(--border);
 }
 
-html[data-theme="light"] nav {
+html[data-mode="light"] nav {
   background: color-mix(in oklab, var(--surface) 90%, var(--accent) 3%);
 }
 
@@ -899,11 +899,11 @@ nav a:is(:hover, .active)::after {
 }
 
 /* Position by theme attribute */
-:root[data-theme="light"] .toggle-thumb {
+:root[data-mode="light"] .toggle-thumb {
   inset-inline-start: calc(var(--toggle-w) - var(--thumb-sz) - var(--inset));
 }
 
-:root[data-theme="dark"] .toggle-thumb {
+:root[data-mode="dark"] .toggle-thumb {
   inset-inline-start: var(--inset);
 }
 
@@ -919,12 +919,12 @@ nav a:is(:hover, .active)::after {
   transform: scale(.75) rotate(8deg);
 }
 
-:root[data-theme="light"] .thumb-icon.sun {
+:root[data-mode="light"] .thumb-icon.sun {
   opacity: 1;
   transform: scale(1) rotate(0);
 }
 
-:root[data-theme="dark"] .thumb-icon.moon {
+:root[data-mode="dark"] .thumb-icon.moon {
   opacity: 1;
   transform: scale(1) rotate(0);
 }
@@ -1256,30 +1256,30 @@ body>footer:last-child {
 }
 
 /* Card surfaces & inputs look defined on light */
-html[data-theme="light"] .portfolio-item,
-html[data-theme="light"] .contact-info,
-html[data-theme="light"] .contact-form {
+html[data-mode="light"] .portfolio-item,
+html[data-mode="light"] .contact-info,
+html[data-mode="light"] .contact-form {
   background: color-mix(in oklab, var(--surface-2) 94%, transparent);
   border-color: var(--border);
 }
 
-html[data-theme="light"] .contact-form input,
-html[data-theme="light"] .contact-form textarea {
+html[data-mode="light"] .contact-form input,
+html[data-mode="light"] .contact-form textarea {
   background: color-mix(in oklab, var(--surface-2) 85%, transparent);
   border-color: var(--border);
 }
 
-html[data-theme="light"] .lightbox__panel {
+html[data-mode="light"] .lightbox__panel {
   background: color-mix(in oklab, var(--surface) 98%, transparent);
   border-color: var(--border);
 }
 
-/* Slightly stronger muted text in light */
-html[data-theme="light"] .section-sub,
-html[data-theme="light"] .lightbox__desc,
-html[data-theme="light"] .about-text .meta {
+html[data-mode="light"] .section-sub,
+html[data-mode="light"] .lightbox__desc,
+html[data-mode="light"] .about-text .meta {
   color: color-mix(in oklab, var(--muted) 92%, transparent);
 }
+
 
 /* Contact card base */
 .contact .contact-content {
@@ -1396,6 +1396,54 @@ html[data-theme="light"] .about-text .meta {
 .btn:disabled {
   opacity: .6;
   cursor: not-allowed
+}
+
+/* افزوده: گروه دکمه‌ها در هیرو */
+.hero-ctas {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* افزوده: واریانت دکمه شبحی */
+.btn.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid color-mix(in oklab, var(--accent) 65%, transparent);
+  box-shadow: none;
+}
+
+.btn.btn--ghost:hover {
+  background: color-mix(in oklab, var(--accent) 16%, transparent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-1);
+}
+
+/* خوانایی بهتر در لایت */
+html[data-mode="light"] .btn.btn--ghost {
+  color: #0b1220;
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+}
+
+/* افزوده: Skip to content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #000;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  z-index: 1000
 }
 
 /* ---------- Toast (scoped) ---------- */
