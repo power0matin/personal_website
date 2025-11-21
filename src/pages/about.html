@@ -87,6 +87,8 @@
 
 
 <body>
+  <div class="page-overlay" aria-hidden="true"></div>
+
   <header>
     <div class="container bar">
       <a href="../../index.html" class="logo">Matin Shahabadi</a>
@@ -120,7 +122,7 @@
   </header>
 
   <main class="container">
-    <section class="about">
+    <section class="about" data-animate="fade-up">
       <h2>About Me</h2>
       <p class="section-sub">Web & Software Developer focused on performance, accessibility, and clean UI/UX design.</p>
 
@@ -184,7 +186,7 @@
       <a href="https://www.pinterest.com/powermatin" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
       <a href="https://www.twitch.tv/powermatin" aria-label="Twitch"><i class="fa-brands fa-twitch"></i></a>
     </div>
-    <p>&copy; 2025 Matin Shahabadi · Crafted with ❤️ from Iran</p>
+    <p>&copy; <span id="year">2025</span> Matin Shahabadi · Crafted with ❤️ from Iran</p>
   </footer>
 
   <script src="../js/main.js" defer></script>

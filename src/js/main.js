@@ -14,6 +14,14 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* ========== Footer year (auto) ========== */
+  (function autoYear() {
+    const span = document.getElementById('year');
+    if (span) {
+      span.textContent = new Date().getFullYear();
+    }
+  })();
+
   /* ========== Mobile menu ========== */
   (function mobileMenu(){
     const menuToggle = document.querySelector('.menu-toggle');
@@ -43,6 +51,55 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!nav.classList.contains('active')) return;
       if (!nav.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
     }, { passive: true });
+  })();
+
+  /* ========== Smooth in-page scrolling ========== */
+  (function smoothAnchors() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    if (!links.length) return;
+
+    links.forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  })();
+
+  /* ========== Scroll-triggered animations ========== */
+  (function scrollAnimations() {
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    if (!animatedElements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      animatedElements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+      }
+    );
+
+    animatedElements.forEach((el) => observer.observe(el));
   })();
 
   /* ========== Typing effect ========== */

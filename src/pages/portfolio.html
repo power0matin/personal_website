@@ -98,6 +98,8 @@
 </script>
 
 <body>
+  <div class="page-overlay" aria-hidden="true"></div>
+
   <header>
     <div class="container bar">
       <a href="../../index.html" class="logo">Matin Shahabadi</a>
@@ -132,10 +134,9 @@
   </header>
 
   <main class="container">
-    <section class="portfolio">
+    <section class="portfolio is-visible" data-animate="fade-up">
       <h2>My Portfolio</h2>
       <p class="section-sub">Selected projects and experiments.</p>
-
       <div class="portfolio-grid">
         <article class="portfolio-item">
           <img id="iran-shot" alt="Preview of Iran-Provinces project" loading="lazy"
@@ -307,7 +308,7 @@
       <a href="https://www.instagram.com/powermatin" target="_blank" rel="noopener" aria-label="Instagram"><i
           class="fa-brands fa-instagram"></i></a>
     </div>
-    <p>&copy; 2025 Matin Shahabadi · Crafted with ❤️ from Iran</p>
+    <p>&copy; <span id="year">2025</span> Matin Shahabadi · Crafted with ❤️ from Iran</p>
   </footer>
 
   <script src="../js/main.js" defer></script>

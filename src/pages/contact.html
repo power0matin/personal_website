@@ -97,6 +97,8 @@
 </script>
 
 <body>
+  <div class="page-overlay" aria-hidden="true"></div>
+
   <header>
     <div class="container bar">
       <a href="../../index.html" class="logo">Matin Shahabadi</a>
@@ -131,7 +133,7 @@
   </header>
 
   <main class="container">
-    <section class="contact" aria-labelledby="contact-title">
+    <section class="contact" aria-labelledby="contact-title" data-animate="fade-up">
       <h2 id="contact-title">Contact Me</h2>
       <p class="section-sub">Got a brief, idea, or role? Let’s talk.</p>
 
@@ -215,7 +217,7 @@
       <a href="https://www.instagram.com/powermatin" aria-label="Instagram" target="_blank" rel="noopener"><i
           class="fa-brands fa-instagram"></i></a>
     </div>
-    <p>&copy; 2025 Matin Shahabadi · Crafted with ❤️ from Iran</p>
+    <p>&copy; <span id="year">2025</span> Matin Shahabadi · Crafted with ❤️ from Iran</p>
   </footer>
 
   <script src="../js/main.js" defer></script>

@@ -138,6 +138,8 @@
 </script>
 
 <body>
+  <div class="page-overlay" aria-hidden="true"></div>
+
   <!-- Skip to content -->
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -186,8 +188,8 @@
   </header>
 
   <main id="main" class="container">
-    <section class="home">
-      <div class="home-img">
+    <section class="home is-visible" data-animate="fade-up">
+      <div class="home-img" data-animate="slide-up" data-animate-delay="80">
         <!-- Hero image with format fallbacks -->
         <picture>
           <source srcset="./src/assets/images/main.avif" type="image/avif">
@@ -196,7 +198,7 @@
             decoding="async" fetchpriority="high">
         </picture>
       </div>
-      <div class="home-content">
+      <div class="home-content" data-animate="fade-up" data-animate-delay="160">
         <h1>Hi, I'm <span style="color:var(--accent)">Matin Shahabadi</span></h1>
         <h3 class="typing-text" data-force-animate="true">
           I'm a <span id="typed-text"></span><span class="cursor" aria-hidden="true"></span>
@@ -229,7 +231,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Matin Shahabadi · Crafted with ❤️ from Iran</p>
+    <p>&copy; <span id="year">2025</span> Matin Shahabadi · Crafted with ❤️ from Iran</p>
   </footer>
 
   <!-- Scripts -->
