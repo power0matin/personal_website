@@ -205,13 +205,12 @@ See [LICENSE](LICENSE) for details.
  
 ## 📬 Contact
 
-**Matin Shahabadi**
+**Matin Shahabadi (متین شاه‌آبادی / متین شاه آبادی)**
 
-* Email: [matin_shahabadi@outlook.com](mailto:matin_shahabadi@outlook.com)
+* Website: [matinshahabadi.ir](https://matinshahabadi.ir)
+* Email: [me@matinshahabadi.ir](mailto:me@matinshahabadi.ir)
 * GitHub: [power0matin](https://github.com/power0matin)
-* Instagram: [@powermatin](https://www.instagram.com/powermatin)
-<!-- * LinkedIn: *Your LinkedIn* — [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile) -->
-
+* LinkedIn: [matin-shahabadi](https://www.linkedin.com/in/matin-shahabadi)
 
  
 ⭐ If you find this project useful, please star the repo! ⭐
